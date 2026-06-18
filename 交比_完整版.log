@@ -803,8 +803,7 @@ File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (d:/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
-))
-No file 交比_完整版.aux.
+)) (./交比_完整版.aux)
 \openout1 = `交比_完整版.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -880,6 +879,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 76.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -933,16 +933,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 32023 strings out of 470148
- 771245 string characters out of 5478126
- 1239232 words of memory out of 5000000
- 60007 multiletter control sequences out of 15000+600000
+ 32026 strings out of 470148
+ 771290 string characters out of 5478126
+ 1239650 words of memory out of 5000000
+ 60008 multiletter control sequences out of 15000+600000
  633036 words of font info for 74 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  102i,15n,107p,1172b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
