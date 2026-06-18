@@ -87,7 +87,7 @@
     \centering
     \fbox{本內容為原創筆記，未經筆者允許，不得轉發。}
 \end{quotation}
-\section{交比的定義}
+\section{線交比}
 \begin{mybox}[定義]{4em}{1em}{0.5em}
     對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，定義
     $$
@@ -141,6 +141,34 @@
         \end{subfigure}
     \end{figure}
 \end{mybox}
+\section{圓交比}
+\begin{mybox}[定義]{4em}{1em}{0.5em}
+    對於同一圓$\Gamma$上的四個相異點$A$、$B$、$P$和$Q$，定義
+    $$
+        \left[A,B;P,Q\right]=\frac{AP/PB}{AQ/QB}
+    $$
+    稱$\left[A,B;P,Q\right]$為$\Gamma$上的關於$A$、$B$、$P$和$Q$的交比；
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale = 1.0]
+            \tkzDefPoints{0/0/O, -2/0/A}
+            \tkzDefPointBy[rotation= center O angle -110](A) \tkzGetPoint{P}
+            \tkzDefPointBy[rotation= center O angle 90](A) \tkzGetPoint{Q}
+            \tkzDefPointBy[rotation= center O angle 150](A) \tkzGetPoint{B}
+            \tkzDrawPoints[black](A,B,P,Q)
+            \tkzDrawCircle[black, thick](O,A)
+            \tkzDrawSegments[blue, thick, dashed](A,P P,B)
+            \tkzDrawSegments[red, thick, dashed](A,Q Q,B)
+            \tkzLabelPoints[left](A)
+            \tkzLabelPoints[above](P)
+            \tkzLabelPoints[right](B)
+            \tkzLabelPoints[below](Q)
+        \end{tikzpicture}
+        \label{fig:cr_circle}
+        \caption{同一個圓上四點的交比}
+    \end{figure}
+\end{mybox}
+注意
 \section{交比的性質}
 以下性質的名稱為筆者自創，讀者於數學競賽時，可直接使用交比的性質，而不要寫出交比的性質名稱。
 \begin{mybox}[性質1]{4.5em}{1em}{0.5em}
@@ -221,7 +249,9 @@
 
 介紹調和點列之前，首先要引入另一個概念——無窮遠點：
 \begin{mybox}[無窮遠點]{6em}{1em}{0.5em}
-    故名思義，無窮遠點是一個存在於無窮遠處的點，對於空間上任一條直線，「無窮遠點$\infty$」皆在直線上。
+    故名思義，無窮遠點是一個存在於無窮遠處的點。
+    
+    對於空間上任一條直線，「無窮遠點$\infty$」皆在直線上。
 
     在歐氏幾何中，一對平行線永不相交，但是在射影幾何中，一對平行線是會相交於「無窮遠點$\infty$」的。
 
@@ -230,5 +260,8 @@
         \overrightarrow{A\infty}/\overrightarrow{\infty B}=-1
     $$
     上式可以視為無窮遠點的「數值定義」。
+\end{mybox}
+\begin{mybox}[調和點列]{6em}{1em}{0.5em}
+    對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，如果$\left(A,B;P,Q\right)=-1$，則稱四點$A$、$B$、$P$和$Q$為一組\underline{調和點列}。
 \end{mybox}
 \end{document}
