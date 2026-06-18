@@ -167,23 +167,87 @@
         \label{fig:cr_circle}
         \caption{同一個圓上四點的交比}
     \end{figure}
+    可以留意到，圓交比的符號與線交比中的無向交比符號相同，
+    這是不僅是因為兩者皆為標量運算，而且在後續章節中將會介紹 \underline{圓交比}和 \underline{無向交比}之間的聯繫。
 \end{mybox}
-注意
+
 \section{交比的性質}
-以下性質的名稱為筆者自創，讀者於數學競賽時，可直接使用交比的性質，而不要寫出交比的性質名稱。
+以下性質的名稱為筆者自創，讀者於數學競賽時，可直接使用交比的性質。
+
+下列所有性質的大前提是：\underline{$A$、$B$、$P$和$Q$為同一直線上的四個相異點。}
 \begin{mybox}[性質1]{4.5em}{1em}{0.5em}
     有向-無向轉換性：$\left[A,B;P,Q\right]=\left|\left(A,B;P,Q\right)\right|$；
 \end{mybox}
+\begin{mybox}[證明1]{4.5em}{1em}{0.5em}
+    由有向交比的定義可得
+    \begin{equation*}
+        \left|\left(A,B;P,Q\right)\right|=\left|\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{AQ}/\overrightarrow{QB}}\right|
+        =\frac{AP/PB}{AQ/QB}=\left[A,B;P,Q\right]
+    \end{equation*}
+\end{mybox}
 \begin{mybox}[性質2]{4.5em}{1em}{0.5em}
-    有向交比的正值：$\left(A,B;P,Q\right)>0$當且僅當$P$和$Q$同為線段$AB$的內分點或外分點；
+    有向-無向調和性：$\left(A,B;P,Q\right)=-1\Leftrightarrow\left[A,B;P,Q\right]=1$；
+\end{mybox}
+\begin{mybox}[證明2]{4.5em}{1em}{0.5em}
+    由性質1可以直接證明性質2的充分性，下面只證明必要性：
+    \begin{equation*}
+        \left[A,B;P,Q\right]=1\Leftrightarrow\left(A,B;P,Q\right)=\pm 1
+    \end{equation*}
+    若$\left(A,B;P,Q\right)=1$，則由有向交比的定義可得
+    \begin{equation*}
+        \overrightarrow{AP}/\overrightarrow{PB}=\overrightarrow{AQ}/\overrightarrow{QB}
+    \end{equation*}
+    但對於線段$AB$來說，$P$和$Q$是兩個相異的分點，所以$\overrightarrow{AP}/\overrightarrow{PB}\neq\overrightarrow{AQ}/\overrightarrow{QB}$，矛盾。
+
+    因此$\left(A,B;P,Q\right)$只能等於$-1$，必要性得證。
 \end{mybox}
 \begin{mybox}[性質3]{4.5em}{1em}{0.5em}
-    端點-分點對交換性：$\left(A,B;P,Q\right)=\left(P,Q;A,B\right)$；
+    有向交比的值域：$\left(A,B;P,Q\right)$的值域為$\mathbb{R}\setminus\left\{0,1\right\}$；
+\end{mybox}
+\begin{mybox}[證明3]{4.5em}{1em}{0.5em}
+    對於$\left(A,B;P,Q\right)\neq1$的證明，已在蘊含在性質2的必要性證明當中。
+
+    對於$\left(A,B;P,Q\right)\neq0$的證明，可直接由「$A$、$B$、$P$和$Q$四點相異」直接得出。
+
+    對於任意實數$r\neq0,1$，我們可以任取一直線上的三個相異點$A$、$B$和$Q$，然後在同一直線取一點$P$滿足：
+    $$
+        \overrightarrow{BP}=-\frac{\overrightarrow{AB}}{1+r\overrightarrow{AQ}/\overrightarrow{QB}}
+    $$
+    此時便能滿足$\left(A,B;P,Q\right)=r$，因此有向交比的值域為$\mathbb{R}\setminus\left\{0,1\right\}$。
 \end{mybox}
 \begin{mybox}[性質4]{4.5em}{1em}{0.5em}
-    端點-分點倒數性：$\left(A,B;P,Q\right)=\left(A,B;Q,P\right)^{-1}=\left(B,A;P,Q\right)^{-1}$；
+    有向交比的正值：$\left(A,B;P,Q\right)>0$當且僅當$P$和$Q$同為線段$AB$的內分點或外分點；
+\end{mybox}
+\begin{mybox}[證明4]{4.5em}{1em}{0.5em}
+    由有向交比的定義可得
+    \begin{equation*}
+        \left(A,B;P,Q\right)>0\Leftrightarrow\overrightarrow{AP}/\overrightarrow{PB}\text{和}\overrightarrow{AQ}/\overrightarrow{QB}\text{同正或同負}\Leftrightarrow\text{$P$和$Q$同為線段$AB$的內分點或外分點}
+    \end{equation*}
 \end{mybox}
 \begin{mybox}[性質5]{4.5em}{1em}{0.5em}
+    端點-分點對交換性：$\left(A,B;P,Q\right)=\left(P,Q;A,B\right)$；
+\end{mybox}
+\begin{mybox}[證明5]{4.5em}{1em}{0.5em}
+    由有向交比的定義可得
+    \begin{equation*}
+        \left(P,Q;A,B\right)=\frac{\overrightarrow{PA}/\overrightarrow{AQ}}{\overrightarrow{PB}/\overrightarrow{BQ}}
+        =\frac{\overrightarrow{PA}\cdot\overrightarrow{BQ}}{\overrightarrow{PB}\cdot\overrightarrow{AQ}}=\frac{\overrightarrow{PA}/\overrightarrow{PB}}{\overrightarrow{AQ}/\overrightarrow{BQ}}=\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{AQ}/\overrightarrow{QB}}=\left(A,B;P,Q\right)
+    \end{equation*}
+\end{mybox}
+\begin{mybox}[性質6]{4.5em}{1em}{0.5em}
+    端點-分點倒數性：$\left(A,B;P,Q\right)=\left(A,B;Q,P\right)^{-1}=\left(B,A;P,Q\right)^{-1}$；
+\end{mybox}
+\begin{mybox}[證明6]{4.5em}{1em}{0.5em}
+    由有向交比的定義可得
+    \begin{equation*}
+        \left(A,B;Q,P\right)=\frac{\overrightarrow{AQ}/\overrightarrow{QB}}{\overrightarrow{AP}/\overrightarrow{PB}}=\left(\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{AQ}/\overrightarrow{QB}}\right)^{-1}=\left(A,B;P,Q\right)^{-1}
+    \end{equation*}
+    再結合性質5可得
+    \begin{equation*}
+        \left(A,B;P,Q\right)=\left(P,Q;A,B\right)=\left(P,Q;B,A\right)^{-1}=\left(B,A;P,Q\right)^{-1}
+    \end{equation*}
+\end{mybox}
+\begin{mybox}[性質7]{4.5em}{1em}{0.5em}
     線-線射影交比不變性：任取直線$AB$外的一點$K$以及另一直線$l_1$，
     設$l_1$分別與直線$KA$、$KB$、$KP$和$KQ$相交於$A'$、$B'$、$P'$和$Q'$四點，
     則有向分比滿足
@@ -211,10 +275,28 @@
         \caption{線-線射影交比不變性}
     \end{figure}
 \end{mybox}
-\begin{mybox}[性質6]{4.5em}{1em}{0.5em}
-    線-圓射影不變性：任取一圓$\Gamma$以及$\Gamma$上的一點$K\notin\left\{A,B,P,Q\right\}$，
+\begin{mybox}[證明7]{4.5em}{1em}{0.5em}
+    利用有向分角定理可知
+    \begin{equation*}
+        \frac{\overrightarrow{AP}}{\overrightarrow{PB}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKP}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}}
+        \cdot\frac{KA}{KB}
+    \end{equation*}
+    和
+    \begin{equation*}
+        \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
+        \cdot\frac{KA}{KB}
+    \end{equation*}
+    上述兩式相除可得
+    \begin{equation*}
+        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
+    \end{equation*}
+\end{mybox}
+\begin{mybox}[性質8]{4.5em}{1em}{0.5em}
+    線-圓射影不變性：任取一圓$\Gamma$，$\Gamma$上取一點$K$，使得$K$不在直線$AB$上。
     設$\Gamma$分別與直線$KA$、$KB$、$KP$和$KQ$相交於$A'$、$B'$、$P'$和$Q'$四點，
-    則無向分比滿足
+    則有以下關係式成立：
     $$
         \left[A,B;P,Q\right]=\left[A',B';P',Q'\right]_{\Gamma}=\frac{A'P'/P'B'}{A'Q'/Q'B'}
     $$
@@ -261,7 +343,10 @@
     $$
     上式可以視為無窮遠點的「數值定義」。
 \end{mybox}
-\begin{mybox}[調和點列]{6em}{1em}{0.5em}
+\begin{mybox}[調和點列（定義1）]{10.5em}{1em}{0.5em}
     對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，如果$\left(A,B;P,Q\right)=-1$，則稱四點$A$、$B$、$P$和$Q$為一組\underline{調和點列}。
+\end{mybox}
+\begin{mybox}[調和點列（定義2）]{10.5em}{1em}{0.5em}
+    對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，如果$\left[A,B;P,Q\right]=1$，則稱四點$A$、$B$、$P$和$Q$為一組\underline{調和點列}。
 \end{mybox}
 \end{document}
