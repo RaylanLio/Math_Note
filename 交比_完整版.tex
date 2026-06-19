@@ -19,6 +19,7 @@
 \counterwithin{figure}{subsection}
 \usepackage[most]{tcolorbox}
 \usepackage{etoolbox}
+\usepackage{xcolor}
 % 1. 定義一個新的開關，名字可以自訂（例如：showanswer）
 \newtoggle{showanswer}
 
@@ -170,11 +171,10 @@
     可以留意到，圓交比的符號與線交比中的無向交比符號相同，
     這是不僅是因為兩者皆為標量運算，而且在後續章節中將會介紹 \underline{圓交比}和 \underline{無向交比}之間的聯繫。
 \end{mybox}
-
 \section{交比的性質}
 以下性質的名稱為筆者自創，讀者於數學競賽時，可直接使用交比的性質。
 
-下列所有性質的大前提是：\underline{$A$、$B$、$P$和$Q$為同一直線上的四個相異點。}
+如無特別說明，本章節都默認以下前提：\underline{$A$、$B$、$P$和$Q$為同一直線上的四個相異點。}
 \begin{mybox}[性質1]{4.5em}{1em}{0.5em}
     有向-無向轉換性：$\left[A,B;P,Q\right]=\left|\left(A,B;P,Q\right)\right|$；
 \end{mybox}
@@ -221,7 +221,8 @@
 \begin{mybox}[證明4]{4.5em}{1em}{0.5em}
     由有向交比的定義可得
     \begin{equation*}
-        \left(A,B;P,Q\right)>0\Leftrightarrow\overrightarrow{AP}/\overrightarrow{PB}\text{和}\overrightarrow{AQ}/\overrightarrow{QB}\text{同正或同負}\Leftrightarrow\text{$P$和$Q$同為線段$AB$的內分點或外分點}
+        \left(A,B;P,Q\right)>0\Leftrightarrow\overrightarrow{AP}/\overrightarrow{PB}
+        \text{和}\overrightarrow{AQ}/\overrightarrow{QB}\text{同正或同負}\Leftrightarrow\text{$P$和$Q$同為線段$AB$的內分點或外分點}
     \end{equation*}
 \end{mybox}
 \begin{mybox}[性質5]{4.5em}{1em}{0.5em}
@@ -247,10 +248,72 @@
         \left(A,B;P,Q\right)=\left(P,Q;A,B\right)=\left(P,Q;B,A\right)^{-1}=\left(B,A;P,Q\right)^{-1}
     \end{equation*}
 \end{mybox}
-\begin{mybox}[性質7]{4.5em}{1em}{0.5em}
-    線-線射影交比不變性：任取直線$AB$外的一點$K$以及另一直線$l_1$，
-    設$l_1$分別與直線$KA$、$KB$、$KP$和$KQ$相交於$A'$、$B'$、$P'$和$Q'$四點，
+\section{交比定理}
+\begin{mybox}[定理1]{4.5em}{1em}{0.5em}
+    在平面內任取一點$K$，任意作四條通過$K$點的相異直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
+    對於所有不通過$K$點的直線$\ell_5$，使其與直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$相交於$A$、$B$、$P$和$Q$四點，
     則有向分比滿足
+    $$
+        \left(A,B;P,Q\right)
+        =\frac{\sin{\textcolor{red}{\measuredangle{\overrightarrow{AKP}}}}/\sin{\textcolor{red}{\measuredangle{\overrightarrow{PKB}}}}}
+        {\sin{\textcolor{blue}{\measuredangle{\overrightarrow{AKQ}}}}/\sin{\textcolor{blue}{\measuredangle{\overrightarrow{QKB}}}}}
+    $$
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1.1]
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDrawPoints[fill=black](A,B,P,Q,K)
+            \tkzDrawLine[orange, thick, add = 0.1 and 0.1](A,Q)
+            \tkzDrawLines[black, thick, add = 0.1 and 0.1](K,A K,B K,P K,Q)
+            \tkzLabelPoints[above right](B,Q)
+            \tkzLabelPoints[above left](A,P)
+            \tkzLabelPoint[right](K){$K$}
+            \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+            \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.1](A,Q){$\ell_5$}
+            \tkzPicAngle[draw=red, thick, ->, angle radius = 20](A,K,P)
+            \tkzPicAngle[draw=red, thick, <-, angle radius = 25](B,K,P)
+            \tkzPicAngle[draw=blue, thick, ->, angle radius = 40](A,K,Q)
+            \tkzPicAngle[draw=blue, thick, <-, angle radius = 45](B,K,Q)
+        \end{tikzpicture}
+        \caption{交比定理}
+        \label{fig:cr_bundles}
+    \end{figure}
+\end{mybox}
+\begin{mybox}[證明1]{4.5em}{1em}{0.5em}
+    利用有向分角定理可知
+    \begin{equation*}
+        \frac{\overrightarrow{AP}}{\overrightarrow{PB}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKP}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}}
+        \cdot\frac{KA}{KB}
+    \end{equation*}
+    和
+    \begin{equation*}
+        \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
+        \cdot\frac{KA}{KB}
+    \end{equation*}
+    上述兩式相除可得
+    \begin{equation*}
+        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
+    \end{equation*}
+\end{mybox}
+
+我們把上述的四條共點直線稱為「共點四線束」。觀察定理1及圖\ref{fig:cr_bundles}，
+第五條直線與共點四線束相交而生成的四個交點，其有向交比與\fbox{第五條直線的相對位置\textbf{無關}}，
+只與\fbox{共點四線束的夾角（有向角）\textbf{有關}}。
+
+基於上述結論，我們可以得出定理2：
+\begin{mybox}[定理2]{4.5em}{1em}{0.5em}
+    在平面內任取一點$K$，任意通過$K$點的共點四線束$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
+    任取兩條不通過$K$點的直線$\ell$和$\ell'$，兩條直線與共線四線束的交點關係如下：
+    \begin{enumerate}
+        \item 直線$\ell$分別與直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$相交於$A$、$B$、$P$和$Q$四點；
+        \item 直線$\ell'$分別與直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$相交於$A'$、$B'$、$P'$和$Q'$四點。
+    \end{enumerate}
+    那麼，兩組交點點列的有向交比必定相等，即滿足
     $$
         \left(A,B;P,Q\right)=\left(A',B';P',Q'\right)
     $$
@@ -275,25 +338,7 @@
         \caption{線-線射影交比不變性}
     \end{figure}
 \end{mybox}
-\begin{mybox}[證明7]{4.5em}{1em}{0.5em}
-    利用有向分角定理可知
-    \begin{equation*}
-        \frac{\overrightarrow{AP}}{\overrightarrow{PB}}
-        =\frac{\sin{\measuredangle{\overrightarrow{AKP}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}}
-        \cdot\frac{KA}{KB}
-    \end{equation*}
-    和
-    \begin{equation*}
-        \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}
-        =\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
-        \cdot\frac{KA}{KB}
-    \end{equation*}
-    上述兩式相除可得
-    \begin{equation*}
-        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
-    \end{equation*}
-\end{mybox}
-\begin{mybox}[性質8]{4.5em}{1em}{0.5em}
+\begin{mybox}[定理3]{4.5em}{1em}{0.5em}
     線-圓射影不變性：任取一圓$\Gamma$，$\Gamma$上取一點$K$，使得$K$不在直線$AB$上。
     設$\Gamma$分別與直線$KA$、$KB$、$KP$和$KQ$相交於$A'$、$B'$、$P'$和$Q'$四點，
     則有以下關係式成立：
