@@ -56,7 +56,7 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\thefigure}{\thesection-\arabic{figure}} % 主圖編號
-\renewcommand{\thesubfigure}{圖 \thesection-\arabic{figure}} % 子圖變為 2-1
+\renewcommand{\thesubfigure}{圖 \thesection-\arabic{figure}-\arabic{subfigure}} % 子圖變為 2-1
 \captionsetup[figure]{labelformat=simple, labelsep=quad} 
 \captionsetup[subfigure]{labelformat=simple, labelsep=quad} % 移除括號
 \renewcommand{\figurename}{圖}
@@ -111,8 +111,8 @@
                 \tkzDrawLine[black, thick, add = 0.1 and 0.1](A,Q)
                 \tkzLabelPoints[above](A,B,P,Q)
             \end{tikzpicture}
-            \label{fig:cr_in_out}
             \caption{內分點及外分點}
+            \label{fig:cr_in_out}
         \end{subfigure}
         \stepcounter{figure}
         \hfill
@@ -277,9 +277,9 @@
             \tkzPicAngle[draw=red, thick, <-, angle radius = 25](B,K,P)
             \tkzPicAngle[draw=blue, thick, ->, angle radius = 40](A,K,Q)
             \tkzPicAngle[draw=blue, thick, <-, angle radius = 45](B,K,Q)
-        \end{tikzpicture}
+        \end{tikzpicture}  
         \caption{交比定理}
-        \label{fig:cr_bundles}
+        \label{fig:cr_bundle}
     \end{figure}
 \end{mybox}
 \begin{mybox}[證明1]{4.5em}{1em}{0.5em}
@@ -301,7 +301,7 @@
     \end{equation*}
 \end{mybox}
 
-我們把上述的四條共點直線稱為「共點四線束」。觀察定理1及圖\ref{fig:cr_bundles}，
+我們把上述的四條共點直線稱為「共點四線束」。觀察定理1及圖\ref{fig:cr_bundle}，
 第五條直線與共點四線束相交而生成的四個交點，其有向交比與\fbox{第五條直線的相對位置\textbf{無關}}，
 只與\fbox{共點四線束的夾角（有向角）\textbf{有關}}。
 
@@ -320,19 +320,19 @@
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}[scale=0.8]
-            \tkzDefPoints{-2/0/A, 2/0/B, 1/0/P, -0.5/0/Q, 0/3/K, -2/-3.5/C, 2/-1/D}         
-            \tkzInterLL(K,A)(C,D) \tkzGetPoint{A'}
-            \tkzInterLL(K,B)(C,D) \tkzGetPoint{B'}
-            \tkzInterLL(K,P)(C,D) \tkzGetPoint{P'}
-            \tkzInterLL(K,Q)(C,D) \tkzGetPoint{Q'}
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDefPointOnLine[pos = 2.5](K,A) \tkzGetPoint{A'}
+            \tkzDefPointOnLine[pos = 1.8](K,B) \tkzGetPoint{B'}
+            \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+            \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
             \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-            \tkzDrawLine[black, thick, add = 0.1 and 0.1](A,B)
-            \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',B')
+            \tkzDrawLine[black, thick, add = 0.1 and 0.1](A,Q)
+            \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',Q')
             \tkzDrawLines[black, thick, add = 0.1 and 0.1](K,A' K,B' K,P' K,Q')
-            \tkzLabelPoints[above right](B,P)
-            \tkzLabelPoints[left](A',B',P', Q')
-            \tkzLabelPoints[above left](A,Q)
-            \tkzLabelPoint[right](K){$K$}
+            \tkzLabelPoints[above left](A,B,P)
+            \tkzLabelPoint[above](Q){$Q$}
+            \tkzLabelPoints[right](K)
+            \tkzLabelPoints[left](A',B',P',Q')
         \end{tikzpicture}
         \label{fig:cr_ll_out}
         \caption{線-線射影交比不變性}
