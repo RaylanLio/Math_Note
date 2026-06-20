@@ -320,7 +320,8 @@
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}[scale=0.8]
-            \tkzDefPoints{-2/0/A, 2/0/B, 1/0/P, -0.5/0/Q, 0/3/K, -2/-3.5/C, 2/-1/D}         
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}   
+            \tkzDefPointOnLine[pos=](point1,point2)      
             \tkzInterLL(K,A)(C,D) \tkzGetPoint{A'}
             \tkzInterLL(K,B)(C,D) \tkzGetPoint{B'}
             \tkzInterLL(K,P)(C,D) \tkzGetPoint{P'}
