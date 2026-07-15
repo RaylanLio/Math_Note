@@ -124,6 +124,48 @@
         $$
         即$m_K=n_K=1$，與題中所述操作的前提（$m_K,n_K>1$）矛盾。因此，黑板上恰好有一個大於1的正整數，證畢。
 
+
+        \item 設在第$k$輪操作後，黑板上的2026個正整數分別為$a_1^{\left(k\right)}$、$a_2^{\left(k\right)}$、$\cdots$、$a_{2026}^{\left(k\right)}$；
+        在第$k$輪操作中，孔夫子選擇了黑板上第$i_k$個和第$j_k$個正整數進行操作。
+        
+        記初始的2026個正整數分別為$a_1^{\left(0\right)}$、$a_2^{\left(0\right)}$、$\cdots$、$a_{2026}^{\left(0\right)}$。下面需要證明一個引理：\\
+        
+        \textbf{引理}：對於任意自然數$k$，如果質數$p$不是$A_k$的質因子，則$p$也不是$A_{k+1}$的質因子。
+        
+        \textbf{引理證明}：由上一小題的解答知 $A_{k+1}=A_k/\gcd\left(a_{i_k}^{\left(k\right)},a_{j_k}^{\left(k\right)}\right)$，
+        因為質數$p$不是$A_k$的質因子，所以$p$也不是$A_k/\gcd\left(a_{i_k}^{\left(k\right)},a_{j_k}^{\left(k\right)}\right)$的質因子，
+        從而$p$也不是$A_{k+1}$的質因子，證畢。\\
+
+        由引理可知，若質數$p$不是$A_0=\prod\limits_{i=1}^{2026}{a_i^{\left(0\right)}}$的質因子，则$p$也不是黑板上任意一輪操作後正整數之積的質因子，
+        綜合上一小題的結論可知 $p\nmid M$。\\
+
+        對於任意質數$p$，記 $v_p\left(x\right)=b$ 當且僅當 $p^b\|x$，其中$b$是自然數。
+
+        任取質數$p|A_0$，考慮$v_p\left(a_i^{\left(k\right)}\right)$的遞推關係：（$i=1,2,\cdots,2026$、$k\in\mathbb{N}$）
+        $$
+            v_p\left(a_i^{\left(k+1\right)}\right)=\begin{cases}
+                v_p\left(a_i^{\left(k\right)}\right),&i\neq i_k,j_k\\
+                \min\left(v_p\left(a_{i_k}^{\left(k\right)}\right),v_p\left(a_{j_k}^{\left(k\right)}\right)\right),&i=i_k\\
+                \max\left(v_p\left(a_{i_k}^{\left(k\right)}\right),v_p\left(a_{j_k}^{\left(k\right)}\right)\right)-\min\left(v_p\left(a_{i_k}^{\left(k\right)}\right),v_p\left(a_{j_k}^{\left(k\right)}\right)\right),&i=j_k
+            \end{cases}
+        $$
+        由最大公因數的性質可知
+        $$
+            \gcd\left(v_p\left(a_1^{\left(k+1\right)}\right),v_p\left(a_2^{\left(k+1\right)}\right),\cdots,v_p\left(a_{2026}^{\left(k+1\right)}\right)\right)=\gcd\left(v_p\left(a_1^{\left(k\right)}\right),v_p\left(a_2^{\left(k\right)}\right),\cdots,v_p\left(a_{2026}^{\left(k\right)}\right)\right)
+        $$
+        由上一小題的結論可知，在有限次（第$K$輪）操作後，黑板上恰好只剩下一個大於1的整數$M$，所以有
+        \begin{align*}
+            v_p\left(M\right)&=\gcd\left(1,1,\cdots,1,1,v_p\left(M\right)\right)\\
+            &=\gcd\left(v_p\left(a_1^{\left(K\right)}\right),v_p\left(a_2^{\left(K\right)}\right),\cdots,v_p\left(a_{2026}^{\left(K\right)}\right)\right)\\
+            &=\gcd\left(v_p\left(a_1^{\left(K-1\right)}\right),v_p\left(a_2^{\left(K-1\right)}\right),\cdots,v_p\left(a_{2026}^{\left(K-1\right)}\right)\right)\\
+            &=\cdots\\
+            &=\gcd\left(v_p\left(a_1^{\left(0\right)}\right),v_p\left(a_2^{\left(0\right)}\right),\cdots,v_p\left(a_{2026}^{\left(0\right)}\right)\right)
+        \end{align*}
+        因此可得
+        $$
+            M=\prod\limits_{\text{質數}p}{p^{v_p\left(M\right)}}=\prod\limits_{\text{質數}p|\prod\limits_{i=1}^{2026}{a_i^{\left(0\right)}}}{p^{v_p\left(M\right)}}=\prod\limits_{\text{質數}p|\prod\limits_{i=1}^{2026}{a_i^{\left(0\right)}}}p^{\gcd\left(v_p\left(a_1^{\left(0\right)}\right),v_p\left(a_2^{\left(0\right)}\right),\cdots,v_p\left(a_{2026}^{\left(0\right)}\right)\right)}
+        $$
+        由上式可知，$M$ 是由初始的 2026 個正整數所決定成的，與孔夫子的選擇無關。
     \end{enumerate}
 \end{mybox}
 \end{document}
