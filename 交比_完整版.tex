@@ -56,7 +56,7 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\thefigure}{\thesection-\arabic{figure}} % 主圖編號
-\renewcommand{\thesubfigure}{圖 \thesection-\arabic{figure}-\arabic{subfigure}} % 子圖變為 2-1
+\renewcommand{\thesubfigure}{圖 \thesection-\arabic{figure}} % 子圖變為 2-1
 \captionsetup[figure]{labelformat=simple, labelsep=quad} 
 \captionsetup[subfigure]{labelformat=simple, labelsep=quad} % 移除括號
 \renewcommand{\figurename}{圖}
@@ -287,17 +287,14 @@
     \begin{equation*}
         \frac{\overrightarrow{AP}}{\overrightarrow{PB}}
         =\frac{\sin{\measuredangle{\overrightarrow{AKP}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}}
-        \cdot\frac{KA}{KB}
-    \end{equation*}
-    和
-    \begin{equation*}
-        \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}
+        \cdot\frac{KA}{KB},\hspace{2em} \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}
         =\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
         \cdot\frac{KA}{KB}
     \end{equation*}
     上述兩式相除可得
     \begin{equation*}
-        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
+        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}
+        {\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
     \end{equation*}
 \end{mybox}
 
@@ -319,24 +316,160 @@
     $$
     \begin{figure}[H]
         \centering
-        \begin{tikzpicture}[scale=0.8]
-            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
-            \tkzDefPointOnLine[pos = 2.5](K,A) \tkzGetPoint{A'}
-            \tkzDefPointOnLine[pos = 1.8](K,B) \tkzGetPoint{B'}
-            \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
-            \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
-            \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-            \tkzDrawLine[black, thick, add = 0.1 and 0.1](A,Q)
-            \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',Q')
-            \tkzDrawLines[black, thick, add = 0.1 and 0.1](K,A' K,B' K,P' K,Q')
-            \tkzLabelPoints[above left](A,B,P)
-            \tkzLabelPoint[above](Q){$Q$}
-            \tkzLabelPoints[right](K)
-            \tkzLabelPoints[left](A',B',P',Q')
-        \end{tikzpicture}
-        \label{fig:cr_ll_out}
-        \caption{線-線射影交比不變性}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+                \tkzDefPointOnLine[pos = 1.6](K,A) \tkzGetPoint{A'}
+                \tkzDefPointOnLine[pos = 1.5](K,B) \tkzGetPoint{B'}
+                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
+                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+                \tkzDrawLine[red, thick, add = 0.1 and 0.1](A,Q)
+                \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',Q')
+                \tkzDrawLines[black, thick, add = 0.1 and 0.1](K,A' K,B' K,P' K,Q')
+                \tkzLabelLine[below, pos=1.1](K,A'){$\ell_1$}
+                \tkzLabelLine[below, pos=1.1](K,B'){$\ell_2$}
+                \tkzLabelLine[below, pos=1.1](K,P'){$\ell_3$}
+                \tkzLabelLine[below, pos=1.1](K,Q'){$\ell_4$}
+                \tkzLabelLine[left, pos=-0.1](A,Q){$\ell_5$}
+                \tkzLabelLine[left, pos=-0.1](A',Q'){$\ell_6$}
+                \tkzLabelPoints[above left](A,B,P)
+                \tkzLabelPoints[above](Q)
+                \tkzLabelPoints[right](K)
+                \tkzLabelPoints[above left](A',B',P')
+                \tkzLabelPoints[above](Q')
+            \end{tikzpicture}
+            \caption{情況一}
+            \label{fig:cr_ll_1}
+        \end{subfigure}
+        \stepcounter{figure}
+        \hfill
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.9]
+                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+                \tkzDefPointOnLine[pos = -0.4](K,A) \tkzGetPoint{A'}
+                \tkzDefPointOnLine[pos = 0.8](K,B) \tkzGetPoint{B'}
+                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
+                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+                \tkzDrawLine[red, thick, add = 0.1 and 0.1](A,Q)
+                \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',B')
+                \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' K,B K,P K,Q)
+                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+                \tkzLabelLine[left, pos=-0.1](A,Q){$\ell_5$}
+                \tkzLabelLine[above, pos=-0.1](A',B'){$\ell_6$}
+                \tkzLabelPoints[above left](A,B,P)
+                \tkzLabelPoints[above](Q)
+                \tkzLabelPoints[left](K)
+                \tkzLabelPoints[left](P')
+                \tkzLabelPoints[right](A',B',Q')
+            \end{tikzpicture}
+            \caption{情況二}
+            \label{fig:cr_ll_2}
+        \end{subfigure}
+        \stepcounter{figure}
+        \hfill
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.8]
+                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+                \tkzDefPointOnLine[pos = 0.7](K,P) \tkzGetPoint{P'}
+                \tkzDefPointOnLine[pos = -0.5](K,B) \tkzGetPoint{B'}
+                \tkzInterLL(K,A)(P',B') \tkzGetPoint{A'}
+                \tkzInterLL(K,Q)(P',B') \tkzGetPoint{Q'}
+                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+                \tkzDrawLine[red, thick, add = 0.1 and 0.1](A,Q)
+                \tkzDrawLine[blue, thick, add = 0.1 and 0.1](P',B')
+                \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' B,B' K,P K,Q)
+                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+                \tkzLabelLine[left, pos=-0.1](A,Q){$\ell_5$}
+                \tkzLabelLine[above, pos=-0.1](B',P'){$\ell_6$}
+                \tkzLabelPoints[above left](A,B)
+                \tkzLabelPoints[above right](P,Q)
+                \tkzLabelPoints[left](K)
+                \tkzLabelPoints[left](B',P')
+                \tkzLabelPoints[right](A',Q')
+            \end{tikzpicture}
+            \caption{情況三}
+            \label{fig:cr_ll_3}
+        \end{subfigure}
+        \stepcounter{figure}
+        \vspace{1em}
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.8]
+                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+                \tkzDefPointOnLine[pos = -0.9](K,P) \tkzGetPoint{P'}
+                \tkzDefPointOnLine[pos = 0.7](K,Q) \tkzGetPoint{Q'}
+                \tkzInterLL(K,A)(P',Q') \tkzGetPoint{A'}
+                \tkzInterLL(K,B)(P',Q') \tkzGetPoint{B'}
+                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+                \tkzDrawLine[red, thick, add = 0.1 and 0.1](A,Q)
+                \tkzDrawLine[blue, thick, add = 0.1 and 0.1](P',Q')
+                \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' B,B' P,P' K,Q)
+                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+                \tkzLabelLine[left, pos=-0.1](A,Q){$\ell_5$}
+                \tkzLabelLine[above, pos=-0.1](P',Q'){$\ell_6$}
+                \tkzLabelPoints[above left](A,B,P)
+                \tkzLabelPoints[above right](Q)
+                \tkzLabelPoints[left](K)
+                \tkzLabelPoints[above right](B')
+                \tkzLabelPoints[right](A',P',Q')
+            \end{tikzpicture}
+            \caption{情況四}
+            \label{fig:cr_ll_4}
+        \end{subfigure}
+        \stepcounter{figure}
+        \hfill
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+                \tkzDefPointOnLine[pos = -1.3](K,A) \tkzGetPoint{A'}
+                \tkzDefPointOnLine[pos = -1.2](K,B) \tkzGetPoint{B'}
+                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
+                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+                \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
+                \tkzDrawLine[blue, thick, add = 0.1 and 0.1](A',Q')
+                \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' B,B' P,P' Q,Q')
+                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+                \tkzLabelLine[left, pos=-0.2](A,Q){$\ell_5$}
+                \tkzLabelLine[left, pos=-0.1](Q',A'){$\ell_6$}
+                \tkzLabelPoints[above left](A,B,P)
+                \tkzLabelPoints[above](Q)
+                \tkzLabelPoints[right](K)
+                \tkzLabelPoints[above](A',Q')
+                \tkzLabelPoints[above right](B',P')
+            \end{tikzpicture}
+            \caption{情況五}
+            \label{fig:cr_ll_5}
+        \end{subfigure}         
     \end{figure}
+\end{mybox}
+\begin{mybox}[證明2]{4.5em}{1em}{0.5em}
+    根據定理1可知，兩個交點點列的有向交比分別是
+    \begin{equation*}
+        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}
+        {\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}},\hspace{2em}
+        \left(A',B';P',Q'\right)=\frac{\sin{\measuredangle{\overrightarrow{A'KP'}}}/\sin{\measuredangle{\overrightarrow{P'KB'}}}}
+        {\sin{\measuredangle{\overrightarrow{A'KQ'}}}/\sin{\measuredangle{\overrightarrow{Q'KB'}}}}
+    \end{equation*}
+    
 \end{mybox}
 \begin{mybox}[定理3]{4.5em}{1em}{0.5em}
     線-圓射影不變性：任取一圓$\Gamma$，$\Gamma$上取一點$K$，使得$K$不在直線$AB$上。
