@@ -469,7 +469,41 @@
         \left(A',B';P',Q'\right)=\frac{\sin{\measuredangle{\overrightarrow{A'KP'}}}/\sin{\measuredangle{\overrightarrow{P'KB'}}}}
         {\sin{\measuredangle{\overrightarrow{A'KQ'}}}/\sin{\measuredangle{\overrightarrow{Q'KB'}}}}
     \end{equation*}
-    
+    對於通過$K$點的任一直線，在直線上任取兩個相異點$X$和$X'$，其中$K\notin\left\{X,X'\right\}$，定義一個函數$g_K\left(X,X'\right)$：
+    $$
+        g_K\left(X,X'\right)=\begin{cases}
+            0,&\text{若$K$是$XX'$的外分點}\\
+            1,&\text{若$K$是$XX'$的內分點}
+        \end{cases}
+    $$
+    觀察$\measuredangle{\overrightarrow{A'KP'}}$可知
+    $$
+        \measuredangle{\overrightarrow{A'KP'}}=
+        \measuredangle{\overrightarrow{A'KA}}+\measuredangle{\overrightarrow{AKP}}+\measuredangle{\overrightarrow{PKP'}}
+        =\measuredangle{\overrightarrow{AKP}}+g_K\left(A,A'\right)\pi+g_K\left(P,P'\right)\pi
+    $$
+    所以有
+    $$
+        \sin{\measuredangle{\overrightarrow{A'KP'}}}=(-1)^{g_K\left(A,A'\right)+g_K\left(P,P'\right)}\sin{\measuredangle{\overrightarrow{AKP}}}
+    $$
+    同理可得
+    \begin{align*}
+        \sin{\measuredangle{\overrightarrow{P'KB'}}}&=(-1)^{g_K\left(P,P'\right)+g_K\left(B,B'\right)}\sin{\measuredangle{\overrightarrow{PKB}}}\\
+        \sin{\measuredangle{\overrightarrow{A'KQ'}}}&=(-1)^{g_K\left(A,A'\right)+g_K\left(Q,Q'\right)}\sin{\measuredangle{\overrightarrow{AKQ}}}\\
+        \sin{\measuredangle{\overrightarrow{Q'KB'}}}&=(-1)^{g_K\left(Q,Q'\right)+g_K\left(B,B'\right)}\sin{\measuredangle{\overrightarrow{QKB}}}
+    \end{align*}
+    因此有
+    \begin{align*}
+        \frac{\sin{\measuredangle{\overrightarrow{A'KP'}}}/\sin{\measuredangle{\overrightarrow{P'KB'}}}}
+        {\sin{\measuredangle{\overrightarrow{A'KQ'}}}/\sin{\measuredangle{\overrightarrow{Q'KB'}}}}
+        &=\frac{(-1)^{g_K\left(A,A'\right)-g_K\left(P,P'\right)-g_K\left(P,P'\right)+g_K\left(B,B'\right)}}{(-1)^{g_K\left(A,A'\right)-g_K\left(Q,Q'\right)-g_K\left(Q,Q'\right)+g_K\left(B,B'\right)}}
+        \frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}\\
+        &=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
+    \end{align*}
+    即有
+    $$
+        \left(A,B;P,Q\right)=\left(A',B';P',Q'\right)
+    $$
 \end{mybox}
 \begin{mybox}[定理3]{4.5em}{1em}{0.5em}
     線-圓射影不變性：任取一圓$\Gamma$，$\Gamma$上取一點$K$，使得$K$不在直線$AB$上。
