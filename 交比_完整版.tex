@@ -506,11 +506,11 @@
     $$
 \end{mybox}
 \begin{mybox}[定理3]{4.5em}{1em}{0.5em}
-    線-圓射影不變性：任取一圓$\Gamma$，$\Gamma$上取一點$K$，使得$K$不在直線$AB$上。
-    設$\Gamma$分別與直線$KA$、$KB$、$KP$和$KQ$相交於$A'$、$B'$、$P'$和$Q'$四點，
+    線-圓射影不變性：在任意圓$\Gamma$上任取五個相異點$K$、$A'$、$B'$、$P'$、$Q'$，
+    任取直線$\ell$，設$\ell$分別與直線$KA'$、$KB'$、$KP'$和$KQ'$相交於$A$、$B$、$P$和$Q$四點，
     則有以下關係式成立：
     $$
-        \left[A,B;P,Q\right]=\left[A',B';P',Q'\right]_{\Gamma}=\frac{A'P'/P'B'}{A'Q'/Q'B'}
+        \left[A',B';P',Q'\right]=\left[A,B;P,Q\right]
     $$
     \begin{figure}[H]
         \centering
@@ -523,18 +523,65 @@
             \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
             \tkzDrawCircle[black, thick](O,K)
             \tkzDrawLines[black, thick](A,B)
-            \tkzDrawSegments[black, thick](K,A K,B K,P' K,Q')
+            \tkzDrawLines[black, thick,add=0 and 0.2](K,A K,Q' K,P' K,B)
+            \tkzLabelLine[left, pos=-0.2](A,B){$\ell$}
             \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
             \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
             \tkzLabelPoints[above left](P)
             \tkzLabelPoints[above right](Q)
             \tkzLabelPoints[right](B')
             \tkzLabelPoints[left](A')
-            \tkzLabelPoints[below](A,Q',P',B)
+            \tkzLabelPoints[below](A,B)
+            \tkzLabelPoints[below right](Q')
+            \tkzLabelPoints[below left](P')
             \tkzLabelPoints[above](K)
         \end{tikzpicture}
         \label{fig:cr_lc}
         \caption{線-圓射影交比不變性}
+    \end{figure}
+\end{mybox}
+\begin{mybox}[證明3]{4.5em}{1em}{0.5em}
+    直接由定理1及正弦定理可以推導出
+    \begin{align}
+        \left[A,B;P,Q\right]&=\frac{\sin{\angle{AKP}}/\sin{\angle{PKB}}}
+        {\sin{\angle{AKQ}}/\sin{\angle{QKB}}}\tag{定理1}\\
+        &=\frac{\sin{\angle{A'KP'}}/\sin{\angle{P'KB'}}}
+        {\sin{\angle{A'KQ'}}/\sin{\angle{Q'KB'}}}\notag\\
+        &=\frac{A'P'/P'B'}{A'Q'/Q'B'}\tag{正弦定理}\\
+        &=\left[A',B';P',Q'\right]\notag
+    \end{align}
+\end{mybox}
+\begin{mybox}[定理4]{4.5em}{1em}{0.5em}
+    （定理3的極限情況）：在任意圓$\Gamma$上任取四個相異點$A'$、$B'$、$P'$、$Q'$，任取直線$\ell$，
+    設$\ell$分別與直線$A'B'$、$A'P'$和$A'Q'$相交於$B$、$P$和$Q$三點，而過$A'$點的切線與直線$\ell$相交於$A$點，則有以下關係式成立：
+    $$
+        \left[A',B';P',Q'\right]=\left[A,B;P,Q\right]
+    $$
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1.1]
+            \tkzDefPoints{0/0/O, -1/0/A', 0/-2/C, 1/-2/D, -1/1/E}
+            \tkzDefPointBy[rotation= center O angle 120](A') \tkzGetPoint{B'}  
+            \tkzDefPointBy[rotation=center O angle 75](A') \tkzGetPoint{Q'}
+            \tkzDefPointBy[rotation=center O angle -110](A') \tkzGetPoint{P'}
+            \tkzInterLL(A',B')(C,D) \tkzGetPoint{B}
+            \tkzInterLL(A',P')(C,D) \tkzGetPoint{P}
+            \tkzInterLL(A',Q')(C,D) \tkzGetPoint{Q}
+            \tkzInterLL(E,A')(C,D) \tkzGetPoint{A}
+            \tkzDrawPoints[fill=black](A,B,P,Q,A',B',P',Q')
+            \tkzDrawCircle[black, thick](O,A')
+            \tkzDrawLines[black, thick, add=0.1 and 0.1](P,B)
+            \tkzLabelLine[left, pos=-0.1](P,B){$\ell$}
+            \tkzDrawSegments[black, thick](A',A A',B A',P Q',Q)
+            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+            \tkzLabelPoints[right](B')
+            \tkzLabelPoints[left](A')
+            \tkzLabelPoints[below](A,B,P,Q,Q')
+            \tkzLabelPoints[above](P')
+        \end{tikzpicture}
+        \label{fig:cr_lc_limit}
+        \caption{線-圓射影交比不變性（極限情況）}
     \end{figure}
 \end{mybox}
 \section{調和點列}
