@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  12 AUG 2026 15:30
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  12 AUG 2026 18:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -928,24 +928,24 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4]
-Overfull \hbox (6.59636pt too wide) detected at line 448
+] [2] [3] [4] [5]
+Overfull \hbox (15.26295pt too wide) detected at line 458
 []
  []
 
-[5] [6] [7] [8] [9] (./交比_完整版.aux)
+[6] [7] [8] [9] [10] [11] (./交比_完整版.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 32314 strings out of 470148
- 780618 string characters out of 5478126
- 1325949 words of memory out of 5000000
- 60290 multiletter control sequences out of 15000+600000
+ 32338 strings out of 470148
+ 781418 string characters out of 5478126
+ 1351522 words of memory out of 5000000
+ 60314 multiletter control sequences out of 15000+600000
  633705 words of font info for 80 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  102i,26n,107p,1172b,1499s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 交比_完整版.pdf (9 pages).
+Output written on 交比_完整版.pdf (11 pages).

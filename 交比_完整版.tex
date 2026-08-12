@@ -343,7 +343,7 @@ $$
 以下性質的名稱為筆者自創，讀者於數學競賽時，可直接使用交比的性質。
 本章節都默認以下前提：\underline{$A$、$B$、$P$和$Q$四點共線於$\ell$或共圓於$\Gamma$。}
 \begin{mybox}[性質1]{4.5em}{1em}{0.5em}
-    端點-分點對交換性：$\left(A,B;P,Q\right)=\left(P,Q;A,B\right)$；
+    端點-分點對交換性：$\left(A,B;P,Q\right)=\left(P,Q;A,B\right),\ s\left(AB;Q,P\right)=s\left(AB;P,Q\right)$；
 \end{mybox}
 \begin{mybox}{4.5em}{1em}{0.5em}
     按照以下兩個原則選取$K$點：
@@ -358,11 +358,21 @@ $$
         &=\left(P,Q;A,B\right)
     \end{align*}
 \end{mybox}
+\begin{mybox}[性質1的推論]{7.5em}{1em}{0.5em}
+    s函數的交換性：$s\left(AB;Q,P\right)=s\left(AB;P,Q\right)=s\left(PQ;A,B\right)=s\left(PQ;B,A\right)$；
+\end{mybox}
 \begin{mybox}[性質2]{4.5em}{1em}{0.5em}
+    設$A$、$B$、$P$、$Q$和$R$五點共線於$\ell$或共圓於$\Gamma$，則有以下關係成立：
+    $$
+        s\left(AB;P,R\right)/s\left(AB;Q,R\right)=s\left(AB;P,R\right)\cdot s\left(AB;Q,R\right)=s\left(AB;P,Q\right)
+    $$
+    稱為\underline{$s$函數的異或性}。（此性質證明太容易，讀者自行證明即可）
+\end{mybox}
+\begin{mybox}[性質3]{4.5em}{1em}{0.5em}
     端點-分點倒數性：$\left(A,B;P,Q\right)=\left(A,B;Q,P\right)^{-1}=\left(B,A;P,Q\right)^{-1}$；
 \end{mybox}
 \begin{mybox}{4.5em}{1em}{0.5em}
-    同樣按照上一個證明的原則去選取$K$點，利用交比定理可得
+    同樣按照性質1證明的原則去選取$K$點，利用交比定理可得
     \begin{align*}
         \left(A,B;P,Q\right)&=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}\\
         &=\left(\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}\right)^{-1}=\left(A,B;Q,P\right)^{-1}
@@ -372,7 +382,7 @@ $$
         \left(A,B;P,Q\right)=\left(P,Q;A,B\right)=\left(P,Q;B,A\right)^{-1}=\left(B,A;P,Q\right)^{-1}
     $$
 \end{mybox}
-\begin{mybox}[性質3]{4.5em}{1em}{0.5em}
+\begin{mybox}[性質4]{4.5em}{1em}{0.5em}
     線-線射影不變性：若$A$、$B$、$P$和$Q$四點共線於$\ell$，任取直線$\ell$外的一點$K$
     以及一條不通過$K$點的直線$\ell'$，使其與直線$KA$、$KB$、$KP$和$KQ$分別相交於$A'$、$B'$、$P'$和$Q'$，
     均有以下關係成立：
@@ -442,8 +452,8 @@ $$
     \begin{align*}
         \frac{\sin{\measuredangle{\overrightarrow{A'KP'}}}/\sin{\measuredangle{\overrightarrow{P'KB'}}}}
         {\sin{\measuredangle{\overrightarrow{A'KQ'}}}/\sin{\measuredangle{\overrightarrow{Q'KB'}}}}
-        &=\frac{(-1)^{g\left(AA';K\right)-g\left(PP';K\right)-g\left(PP';K\right)+g\left(BB';K\right)}}{(-1)^{g\left(AA';K\right)-g\left(QQ';K\right)-g\left(QQ';K\right)+g\left(BB';K\right)}}
-        \frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}\\
+        &=\frac{(-1)^{g\left(AA';K\right)+g\left(PP';K\right)-g\left(PP';K\right)-g\left(BB';K\right)}}{(-1)^{g\left(AA';K\right)+g\left(QQ';K\right)-g\left(QQ';K\right)-g\left(BB';K\right)}}
+        \cdot\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}\\
         &=\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}/\sin{\measuredangle{\overrightarrow{QKB}}}}
     \end{align*}
     即有
@@ -451,8 +461,8 @@ $$
         \left(A,B;P,Q\right)=\left(A',B';P',Q'\right)
     $$
 \end{mybox}
-\begin{mybox}[性質3的其他情況]{9.5em}{1em}{0.5em}
-    關於定理3，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-線射影不變性。
+\begin{mybox}[性質4的其他情況]{9.5em}{1em}{0.5em}
+    關於性質4，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-線射影不變性。
     以下列舉四種不同的情況，讀者可以自行驗證其正確性。
 \end{mybox}
 \begin{figure}[H]
@@ -569,7 +579,7 @@ $$
         \label{fig:cr_ll_4}
     \end{subfigure}         
 \end{figure}
-\begin{mybox}[性質4]{4.5em}{1em}{0.5em}
+\begin{mybox}[性質5]{4.5em}{1em}{0.5em}
 線-圓射影不變性：若$A$、$B$、$P$和$Q$四點共線於$\ell$，任取直線$\ell$外的一點$K$
 以及一個通過$K$點的圓$\Sigma$，使其與直線$KA$、$KB$、$KP$和$KQ$分別相交於$A'$、$B'$、$P'$和$Q'$，
 均有以下關係成立：
@@ -600,15 +610,15 @@ $$
         \tkzLabelPoints[below left](P')
         \tkzLabelPoints[above](K)
     \end{tikzpicture}
-    \label{fig:cr_lc}
+    \label{fig:cr_lc_0}
     \caption{線-圓射影交比不變性}
 \end{figure}
 \end{mybox}
 \begin{mybox}{4.5em}{1em}{0.5em}
-證明與性質3的證明一致，讀者可以自行驗證其正確性。
+證明與性質4的證明一致，讀者可以自行驗證其正確性。
 \end{mybox}
-\begin{mybox}[性質4的其他情況]{9.5em}{1em}{0.5em}
-關於定理4，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-圓射影不變性。
+\begin{mybox}[性質5的其他情況]{9.5em}{1em}{0.5em}
+關於性質5，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-圓射影不變性。
 以下列舉四種不同的情況，讀者可以自行驗證其正確性。
 \end{mybox}
 \begin{figure}[H]
@@ -637,6 +647,8 @@ $$
             \tkzLabelPoints[right](B')
             \tkzLabelPoints[below](Q',A,B,P,Q)
         \end{tikzpicture}
+        \caption{情況一}
+        \label{fig:cr_lc_1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.4\textwidth}
@@ -663,6 +675,8 @@ $$
             \tkzLabelPoints[right](B')
             \tkzLabelPoints[below](Q',A,B,P,Q)
         \end{tikzpicture}
+        \caption{情況二}
+        \label{fig:cr_lc_2}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}[b]{0.4\textwidth}
@@ -690,6 +704,8 @@ $$
             \tkzLabelPoints[right](B')
             \tkzLabelPoints[below](Q',A,B,P,Q)
         \end{tikzpicture}
+        \caption{情況三}
+        \label{fig:cr_lc_3}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.4\textwidth}
@@ -717,10 +733,12 @@ $$
             \tkzLabelPoints[right](B',Q')
             \tkzLabelPoints[below](A,B,P,Q)
         \end{tikzpicture}
+        \caption{情況四}
+        \label{fig:cr_lc_4}
     \end{subfigure}
 \end{figure}
-\begin{mybox}[性質5]{4.5em}{1em}{0.5em}
-    （性質4的極限情況）：在任意圓$\Gamma$上任取四個相異點$A'$、$B'$、$P'$、$Q'$，任取直線$\ell$，
+\begin{mybox}[性質6]{4.5em}{1em}{0.5em}
+    （性質5的極限情況）：在任意圓$\Gamma$上任取四個相異點$A'$、$B'$、$P'$、$Q'$，任取直線$\ell$，
     設$\ell$分別與直線$A'B'$、$A'P'$和$A'Q'$相交於$B$、$P$和$Q$三點，而過$A'$點的切線與直線$\ell$相交於$A$點，則有以下關係式成立：
     $$
         \left(A',B';P',Q'\right)=\left(A,B;P,Q\right)
@@ -751,6 +769,58 @@ $$
         \label{fig:cr_lc_limit}
         \caption{線-圓射影交比不變性（極限情況）}
     \end{figure}
+\end{mybox}
+\begin{mybox}{4.5em}{1em}{0.5em}
+    由性質1及定理1可知
+    $$
+        \left(A,B;P,Q\right)=\frac{\sin{\measuredangle{\overrightarrow{AA'P}}}/\sin{\measuredangle{\overrightarrow{PA'B}}}}{\sin{\measuredangle{\overrightarrow{AA'Q}}}/\sin{\measuredangle{\overrightarrow{QA'B}}}}
+    $$
+    利用性質4的證明過程中所定義的$g$函數可知
+    \begin{align*}
+        \sin{\measuredangle{\overrightarrow{AA'P}}}&=(-1)^{g\left(PP';A'\right)}\sin{\measuredangle{\overrightarrow{AA'P'}}}\\
+        \sin{\measuredangle{\overrightarrow{PA'B}}}&=(-1)^{g\left(PP';A'\right)+g\left(BB';A'\right)}\sin{\measuredangle{\overrightarrow{P'A'B'}}}\\
+        \sin{\measuredangle{\overrightarrow{AA'Q}}}&=(-1)^{g\left(QQ';A'\right)}\sin{\measuredangle{\overrightarrow{AA'Q'}}}\\
+        \sin{\measuredangle{\overrightarrow{QA'B}}}&=(-1)^{g\left(QQ';A'\right)+g\left(BB';A'\right)}\sin{\measuredangle{\overrightarrow{Q'A'B'}}}
+    \end{align*}
+    所以有
+    \begin{align*}
+        \left(A,B;P,Q\right)&=\frac{(-1)^{g\left(PP';A'\right)-g\left(PP';A'\right)-g\left(BB';A'\right)}}{(-1)^{g\left(QQ';A'\right)-g\left(QQ';A'\right)-g\left(BB';A'\right)}}
+        \cdot\frac{\sin{\measuredangle{\overrightarrow{AA'P'}}}/\sin{\measuredangle{\overrightarrow{P'A'B'}}}}{\sin{\measuredangle{\overrightarrow{AA'Q'}}}/\sin{\measuredangle{\overrightarrow{Q'A'B'}}}}\\
+        &=\frac{\sin{\measuredangle{\overrightarrow{AA'P'}}}/\sin{\measuredangle{\overrightarrow{P'A'B'}}}}{\sin{\measuredangle{\overrightarrow{AA'Q'}}}/\sin{\measuredangle{\overrightarrow{Q'A'B'}}}}
+    \end{align*}
+    記$M'\in\left\{P',Q'\right\}$滿足$\angle{AA'M'}=\min{\left(\angle{AA'P'},\angle{AA'Q'}\right)}$，記$N'\in\left\{P',Q'\right\}\setminus\left\{M'\right\}$。
+
+    在弧$A'M'N'$內的弧$A'M'$上任取一點$K\notin\left\{A',M'\right\}$，則有
+    \begin{align*}
+        \measuredangle{\overrightarrow{AA'P'}}&=\measuredangle{\overrightarrow{A'KP'}}+\pi\\
+        \measuredangle{\overrightarrow{P'A'B'}}&=\measuredangle{\overrightarrow{P'KB'}}+\frac{s\left(P'B';A',K\right)-1}{2}\pi\\
+        \measuredangle{\overrightarrow{AA'Q'}}&=\measuredangle{\overrightarrow{A'KQ'}}+\pi\\
+        \measuredangle{\overrightarrow{Q'A'B'}}&=\measuredangle{\overrightarrow{Q'KB'}}+\frac{s\left(Q'B';A',K\right)-1}{2}\pi
+    \end{align*}
+    代入至正弦函數中可得
+    \begin{align*}
+        \sin{\measuredangle{\overrightarrow{AA'P'}}}&=-\sin{\measuredangle{\overrightarrow{A'KP'}}}\\
+        \sin{\measuredangle{\overrightarrow{P'A'B'}}}&=s\left(P'B';A',K\right)\sin{\measuredangle{\overrightarrow{P'KB'}}}\\
+        \sin{\measuredangle{\overrightarrow{AA'Q'}}}&=-\sin{\measuredangle{\overrightarrow{A'KQ'}}}\\
+        \sin{\measuredangle{\overrightarrow{Q'A'B'}}}&=s\left(Q'B';A',K\right)\sin{\measuredangle{\overrightarrow{Q'KB'}}}
+    \end{align*}
+    此時有
+    \begin{align*}
+        \left(A,B;P,Q\right)&=\frac{\sin{\measuredangle{\overrightarrow{A'KP'}}}/\sin{\measuredangle{\overrightarrow{P'KB'}}}}{\sin{\measuredangle{\overrightarrow{A'KQ'}}}/\sin{\measuredangle{\overrightarrow{Q'K'B'}}}}\cdot\frac{s\left(P'B';A',K\right)}{s\left(Q'B';A',K\right)}\\
+        &=\left(A',B';P',Q'\right)\cdot\frac{s\left(P'B';A',K\right)}{s\left(Q'B';A',K\right)}
+    \end{align*}
+    由性質1的推論及性質2可知
+    $$
+        \frac{s\left(P'B';A',K\right)}{s\left(Q'B';A',K\right)}=\frac{s\left(A'K;P',B'\right)}{s\left(A'K;Q',B'\right)}=s\left(A'K;P',Q'\right)
+    $$
+    由$K$點的選取方式可知，$A'$、$K$、$M'$和$N'$沿一個時針方向依次排列，所以$s\left(A'K;M',N'\right)=1$，因此有$s\left(A'K;P',Q'\right)=1$。
+    
+    由此可得
+    \begin{align*}
+        \left(A,B;P,Q\right)&=\left(A',B';P',Q'\right)\cdot\frac{s\left(P'B';A',K\right)}{s\left(Q'B';A',K\right)}\\
+        &=\left(A',B';P',Q'\right)\cdot s\left(A'K;P',Q'\right)\\
+        &=\left(A',B';P',Q'\right)
+    \end{align*}
 \end{mybox}
 \section{調和點列}
 在介紹完有向交比和無向交比的定義及性質後，我們將引入一個非常重要的概念——調和點列。
