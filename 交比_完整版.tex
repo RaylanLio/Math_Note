@@ -454,159 +454,271 @@ $$
 \begin{mybox}[性質3的其他情況]{9.5em}{1em}{0.5em}
     關於定理3，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-線射影不變性。
     以下列舉四種不同的情況，讀者可以自行驗證其正確性。
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}[b]{0.4\textwidth}
-            \centering
-            \begin{tikzpicture}[scale=0.6]
-                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
-                \tkzDefPointOnLine[pos = 1.6](K,A) \tkzGetPoint{A'}
-                \tkzDefPointOnLine[pos = 1.5](K,B) \tkzGetPoint{B'}
-                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
-                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
-                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-                \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
-                \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',Q')
-                \tkzDrawLines[black, thick, add = 0.2 and 0.2](K,A' K,B' K,P' K,Q')
-                \tkzLabelLine[below, pos=1.1](K,A'){$\ell_1$}
-                \tkzLabelLine[below, pos=1.1](K,B'){$\ell_2$}
-                \tkzLabelLine[below, pos=1.1](K,P'){$\ell_3$}
-                \tkzLabelLine[below, pos=1.1](K,Q'){$\ell_4$}
-                \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
-                \tkzLabelLine[left, pos=-0.2](A',Q'){$\ell'$}
-                \tkzLabelPoints[above left](A,B,P)
-                \tkzLabelPoints[above](Q)
-                \tkzLabelPoints[right](K)
-                \tkzLabelPoints[above left](A',B',P')
-                \tkzLabelPoints[above](Q')
-            \end{tikzpicture}
-            \caption{情況一}
-            \label{fig:cr_ll_1}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[b]{0.4\textwidth}
-            \centering
-            \begin{tikzpicture}[scale=0.7]
-                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
-                \tkzDefPointOnLine[pos = -0.4](K,A) \tkzGetPoint{A'}
-                \tkzDefPointOnLine[pos = 0.8](K,B) \tkzGetPoint{B'}
-                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
-                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
-                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-                \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
-                \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',B')
-                \tkzDrawLines[black, thick, add = 0.2 and 0.2](A,A' K,B K,P K,Q)
-                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
-                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
-                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
-                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
-                \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
-                \tkzLabelLine[above, pos=-0.2](A',B'){$\ell'$}
-                \tkzLabelPoints[above left](A,B,P)
-                \tkzLabelPoints[above](Q)
-                \tkzLabelPoints[left](K)
-                \tkzLabelPoints[left](P')
-                \tkzLabelPoints[right](A',B',Q')
-            \end{tikzpicture}
-            \caption{情況二}
-            \label{fig:cr_ll_2}
-        \end{subfigure}
-        \vspace{1em}
-        \begin{subfigure}[b]{0.4\textwidth}
-            \centering
-            \begin{tikzpicture}[scale=0.7]
-                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
-                \tkzDefPointOnLine[pos = -0.9](K,P) \tkzGetPoint{P'}
-                \tkzDefPointOnLine[pos = 0.7](K,Q) \tkzGetPoint{Q'}
-                \tkzInterLL(K,A)(P',Q') \tkzGetPoint{A'}
-                \tkzInterLL(K,B)(P',Q') \tkzGetPoint{B'}
-                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-                \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
-                \tkzDrawLine[blue, thick, add = 0.2 and 0.2](P',Q')
-                \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' B,B' P,P' K,Q)
-                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
-                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
-                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
-                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
-                \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
-                \tkzLabelLine[above, pos=-0.2](P',Q'){$\ell'$}
-                \tkzLabelPoints[above left](A,B,P)
-                \tkzLabelPoints[above right](Q)
-                \tkzLabelPoints[left](K)
-                \tkzLabelPoints[above right](B')
-                \tkzLabelPoints[right](A',P',Q')
-            \end{tikzpicture}
-            \caption{情況三}
-            \label{fig:cr_ll_3}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[b]{0.4\textwidth}
-            \centering
-            \begin{tikzpicture}[scale=0.7]
-                \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
-                \tkzDefPointOnLine[pos = -1.3](K,A) \tkzGetPoint{A'}
-                \tkzDefPointOnLine[pos = -1.2](K,B) \tkzGetPoint{B'}
-                \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
-                \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
-                \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-                \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
-                \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',Q')
-                \tkzDrawLines[black, thick, add = 0.2 and 0.2](A,A' B,B' P,P' Q,Q')
-                \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
-                \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
-                \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
-                \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
-                \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
-                \tkzLabelLine[left, pos=-0.2](Q',A'){$\ell'$}
-                \tkzLabelPoints[above left](A,B,P)
-                \tkzLabelPoints[above](Q)
-                \tkzLabelPoints[right](K)
-                \tkzLabelPoints[above](A',Q')
-                \tkzLabelPoints[above right](B',P')
-            \end{tikzpicture}
-            \caption{情況四}
-            \label{fig:cr_ll_4}
-        \end{subfigure}         
-    \end{figure}
 \end{mybox}
-\begin{mybox}[性質4]{4.5em}{1em}{0.5em}
-    線-圓射影不變性：若$A$、$B$、$P$和$Q$四點共線於$\ell$，任取直線$\ell$外的一點$K$
-    以及一個通過$K$點的圓$\Sigma$，使其與直線$KA$、$KB$、$KP$和$KQ$分別相交於$A'$、$B'$、$P'$和$Q'$，
-    均有以下關係成立：
-    $$
-        \left(A',B';P',Q'\right)=\left(A,B;P,Q\right)
-    $$
-    \begin{figure}[H]
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
         \centering
-        \begin{tikzpicture}[scale=0.9]
-            \tkzDefPoints{-2/-.5/A, 2/-.5/B, 1/-.5/P, -0.5/-.5/Q, 0/1/O, 0/3/K}         
-            \tkzInterLC[common = K](K,A)(O,K) \tkzGetFirstPoint{A'}
-            \tkzInterLC[common = K](K,B)(O,K) \tkzGetFirstPoint{B'}
-            \tkzInterLC[common = K](K,P)(O,K) \tkzGetFirstPoint{P'}
-            \tkzInterLC[common = K](K,Q)(O,K) \tkzGetFirstPoint{Q'}
+        \begin{tikzpicture}[scale=0.6]
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDefPointOnLine[pos = 1.6](K,A) \tkzGetPoint{A'}
+            \tkzDefPointOnLine[pos = 1.5](K,B) \tkzGetPoint{B'}
+            \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+            \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
             \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
-            \tkzDrawCircle[black, thick](O,K)
-            \tkzDrawLines[black, thick](A,B)
-            \tkzDrawLines[black, thick,add=0 and 0.2](K,A K,Q' K,P' K,B)
-            \tkzLabelLine[left, pos=-0.2](A,B){$\ell$}
-            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
-            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
-            \tkzLabelPoints[above left](P)
-            \tkzLabelPoints[above right](Q)
-            \tkzLabelPoints[right](B')
-            \tkzLabelPoints[left](A')
-            \tkzLabelPoints[below](A,B)
-            \tkzLabelPoints[below right](Q')
-            \tkzLabelPoints[below left](P')
-            \tkzLabelPoints[above](K)
+            \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
+            \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',Q')
+            \tkzDrawLines[black, thick, add = 0.2 and 0.2](K,A' K,B' K,P' K,Q')
+            \tkzLabelLine[below, pos=1.1](K,A'){$\ell_1$}
+            \tkzLabelLine[below, pos=1.1](K,B'){$\ell_2$}
+            \tkzLabelLine[below, pos=1.1](K,P'){$\ell_3$}
+            \tkzLabelLine[below, pos=1.1](K,Q'){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
+            \tkzLabelLine[left, pos=-0.2](A',Q'){$\ell'$}
+            \tkzLabelPoints[above left](A,B,P)
+            \tkzLabelPoints[above](Q)
+            \tkzLabelPoints[right](K)
+            \tkzLabelPoints[above left](A',B',P')
+            \tkzLabelPoints[above](Q')
         \end{tikzpicture}
-        \label{fig:cr_lc}
-        \caption{線-圓射影交比不變性}
-    \end{figure}
+        \caption{情況一}
+        \label{fig:cr_ll_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDefPointOnLine[pos = -0.4](K,A) \tkzGetPoint{A'}
+            \tkzDefPointOnLine[pos = 0.8](K,B) \tkzGetPoint{B'}
+            \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+            \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
+            \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
+            \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',B')
+            \tkzDrawLines[black, thick, add = 0.2 and 0.2](A,A' K,B K,P K,Q)
+            \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+            \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
+            \tkzLabelLine[above, pos=-0.2](A',B'){$\ell'$}
+            \tkzLabelPoints[above left](A,B,P)
+            \tkzLabelPoints[above](Q)
+            \tkzLabelPoints[left](K)
+            \tkzLabelPoints[left](P')
+            \tkzLabelPoints[right](A',B',Q')
+        \end{tikzpicture}
+        \caption{情況二}
+        \label{fig:cr_ll_2}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDefPointOnLine[pos = -0.9](K,P) \tkzGetPoint{P'}
+            \tkzDefPointOnLine[pos = 0.7](K,Q) \tkzGetPoint{Q'}
+            \tkzInterLL(K,A)(P',Q') \tkzGetPoint{A'}
+            \tkzInterLL(K,B)(P',Q') \tkzGetPoint{B'}
+            \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
+            \tkzDrawLine[blue, thick, add = 0.2 and 0.2](P',Q')
+            \tkzDrawLines[black, thick, add = 0.1 and 0.1](A,A' B,B' P,P' K,Q)
+            \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+            \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
+            \tkzLabelLine[above, pos=-0.2](P',Q'){$\ell'$}
+            \tkzLabelPoints[above left](A,B,P)
+            \tkzLabelPoints[above right](Q)
+            \tkzLabelPoints[left](K)
+            \tkzLabelPoints[above right](B')
+            \tkzLabelPoints[right](A',P',Q')
+        \end{tikzpicture}
+        \caption{情況三}
+        \label{fig:cr_ll_3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \tkzDefPoints{-2/0/A, -0.5/0/B, 1/0/P, 2/0/Q, 0/3/K}         
+            \tkzDefPointOnLine[pos = -1.3](K,A) \tkzGetPoint{A'}
+            \tkzDefPointOnLine[pos = -1.2](K,B) \tkzGetPoint{B'}
+            \tkzInterLL(K,P)(A',B') \tkzGetPoint{P'}
+            \tkzInterLL(K,Q)(A',B') \tkzGetPoint{Q'}
+            \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawLine[red, thick, add = 0.2 and 0.2](A,Q)
+            \tkzDrawLine[blue, thick, add = 0.2 and 0.2](A',Q')
+            \tkzDrawLines[black, thick, add = 0.2 and 0.2](A,A' B,B' P,P' Q,Q')
+            \tkzLabelLine[below, pos=1.1](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.1](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.1](K,P){$\ell_3$}
+            \tkzLabelLine[below, pos=1.1](K,Q){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,Q){$\ell$}
+            \tkzLabelLine[left, pos=-0.2](Q',A'){$\ell'$}
+            \tkzLabelPoints[above left](A,B,P)
+            \tkzLabelPoints[above](Q)
+            \tkzLabelPoints[right](K)
+            \tkzLabelPoints[above](A',Q')
+            \tkzLabelPoints[above right](B',P')
+        \end{tikzpicture}
+        \caption{情況四}
+        \label{fig:cr_ll_4}
+    \end{subfigure}         
+\end{figure}
+\begin{mybox}[性質4]{4.5em}{1em}{0.5em}
+線-圓射影不變性：若$A$、$B$、$P$和$Q$四點共線於$\ell$，任取直線$\ell$外的一點$K$
+以及一個通過$K$點的圓$\Sigma$，使其與直線$KA$、$KB$、$KP$和$KQ$分別相交於$A'$、$B'$、$P'$和$Q'$，
+均有以下關係成立：
+$$
+    \left(A',B';P',Q'\right)=\left(A,B;P,Q\right)
+$$
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.9]
+        \tkzDefPoints{-2/-.5/A, 2/-.5/B, 1/-.5/P, -0.5/-.5/Q, 0/1/O, 0/3/K}         
+        \tkzInterLC[common = K](K,A)(O,K) \tkzGetFirstPoint{A'}
+        \tkzInterLC[common = K](K,B)(O,K) \tkzGetFirstPoint{B'}
+        \tkzInterLC[common = K](K,P)(O,K) \tkzGetFirstPoint{P'}
+        \tkzInterLC[common = K](K,Q)(O,K) \tkzGetFirstPoint{Q'}
+        \tkzDrawPoints[fill=black](A,B,P,Q,K,A',B',P',Q')
+        \tkzDrawCircle[black, thick](O,K)
+        \tkzDrawLines[black, thick](A,B)
+        \tkzDrawLines[black, thick,add=0 and 0.2](K,A K,Q' K,P' K,B)
+        \tkzLabelLine[left, pos=-0.2](A,B){$\ell$}
+        \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+        \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+        \tkzLabelPoints[above left](P)
+        \tkzLabelPoints[above right](Q)
+        \tkzLabelPoints[right](B')
+        \tkzLabelPoints[left](A')
+        \tkzLabelPoints[below](A,B)
+        \tkzLabelPoints[below right](Q')
+        \tkzLabelPoints[below left](P')
+        \tkzLabelPoints[above](K)
+    \end{tikzpicture}
+    \label{fig:cr_lc}
+    \caption{線-圓射影交比不變性}
+\end{figure}
 \end{mybox}
 \begin{mybox}{4.5em}{1em}{0.5em}
-    證明與性質3的證明一致，讀者可以自行驗證其正確性。
+證明與性質3的證明一致，讀者可以自行驗證其正確性。
 \end{mybox}
+\begin{mybox}[性質4的其他情況]{9.5em}{1em}{0.5em}
+關於定理4，點列$\left(A,B,P,Q\right)$與點列$\left(A',B',P',Q'\right)$還有其他不同的分佈情況，任何一種情況都滿足線-圓射影不變性。
+以下列舉四種不同的情況，讀者可以自行驗證其正確性。
+\end{mybox}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale = 0.7]
+            \tkzDefPoints{0/0/O, -2/0/A'',-1.6/-1.2/A', -2/-3/C, 2/-3/D}
+            \tkzDefPointBy[rotation= center O angle -60](A'') \tkzGetPoint{P'}
+            \tkzDefPointBy[rotation= center O angle 90](A'') \tkzGetPoint{Q'}
+            \tkzDefPointBy[rotation= center O angle 110](A'') \tkzGetPoint{B'}
+            \tkzDefPointBy[rotation= center O angle -10](A'') \tkzGetPoint{K}
+            \tkzInterLL(K,A')(C,D) \tkzGetPoint{A}
+            \tkzInterLL(K,B')(C,D) \tkzGetPoint{B}
+            \tkzInterLL(K,P')(C,D) \tkzGetPoint{P}
+            \tkzInterLL(K,Q')(C,D) \tkzGetPoint{Q}
+            \tkzDrawPoints[black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawCircle[black, thick](O,K)
+            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+            \tkzDrawSegments[black, thick](K,A K,B P,P' K,Q)
+            \tkzDrawLine[black, thick, add=0.2 and 0.2](P,B)
+            \tkzLabelLine[left, pos=-0.2](P,B){$\ell$}
+            \tkzLabelPoints[left](A',K)
+            \tkzLabelPoints[above](P')
+            \tkzLabelPoints[right](B')
+            \tkzLabelPoints[below](Q',A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale = 0.7]
+            \tkzDefPoints{0/0/O, -2/0/A'',-1.2/1.6/A', -2/-3/C, 2/-3/D}
+            \tkzDefPointBy[rotation= center O angle -80](A'') \tkzGetPoint{P'}
+            \tkzDefPointBy[rotation= center O angle 70](A'') \tkzGetPoint{Q'}
+            \tkzDefPointBy[rotation= center O angle 90](A'') \tkzGetPoint{B'}
+            \tkzDefPointBy[rotation= center O angle -10](A'') \tkzGetPoint{K}
+            \tkzInterLL(K,A')(C,D) \tkzGetPoint{A}
+            \tkzInterLL(K,B')(C,D) \tkzGetPoint{B}
+            \tkzInterLL(K,P')(C,D) \tkzGetPoint{P}
+            \tkzInterLL(K,Q')(C,D) \tkzGetPoint{Q}
+            \tkzDrawPoints[black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawCircle[black, thick](O,K)
+            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+            \tkzDrawSegments[black, thick](A',A K,B P,P' K,Q)
+            \tkzDrawLine[black, thick, add=0.2 and 0.2](P,B)
+            \tkzLabelLine[left, pos=-0.2](P,B){$\ell$}
+            \tkzLabelPoints[left](A',K)
+            \tkzLabelPoints[above](P')
+            \tkzLabelPoints[right](B')
+            \tkzLabelPoints[below](Q',A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale = 0.7]
+            \tkzDefPoints{0/0/O, -2/0/A'', -2/-3/C, 2/-3/D}
+            \tkzDefPointBy[rotation= center O angle -30](A'') \tkzGetPoint{A'}
+            \tkzDefPointBy[rotation= center O angle -100](A'') \tkzGetPoint{P'}
+            \tkzDefPointBy[rotation= center O angle 90](A'') \tkzGetPoint{Q'}
+            \tkzDefPointBy[rotation= center O angle -135](A'') \tkzGetPoint{B'}
+            \tkzDefPointBy[rotation= center O angle 40](A'') \tkzGetPoint{K}
+            \tkzInterLL(K,A')(C,D) \tkzGetPoint{A}
+            \tkzInterLL(K,B')(C,D) \tkzGetPoint{B}
+            \tkzInterLL(K,P')(C,D) \tkzGetPoint{P}
+            \tkzInterLL(K,Q')(C,D) \tkzGetPoint{Q}
+            \tkzDrawPoints[black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawCircle[black, thick](O,K)
+            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+            \tkzDrawSegments[black, thick](A',A B',B P,P' K,Q)
+            \tkzDrawLine[black, thick, add=0.2 and 0.2](B,Q)
+            \tkzLabelLine[left, pos=-0.2](B,Q){$\ell$}
+            \tkzLabelPoints[left](A',K)
+            \tkzLabelPoints[above](P')
+            \tkzLabelPoints[right](B')
+            \tkzLabelPoints[below](Q',A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \begin{tikzpicture}[scale = 0.7]
+            \tkzDefPoints{0/0/O, -2/0/A'', -2/-3/C, 2/-3/D}
+            \tkzDefPointBy[rotation= center O angle -30](A'') \tkzGetPoint{A'}
+            \tkzDefPointBy[rotation= center O angle -100](A'') \tkzGetPoint{P'}
+            \tkzDefPointBy[rotation= center O angle -160](A'') \tkzGetPoint{Q'}
+            \tkzDefPointBy[rotation= center O angle -135](A'') \tkzGetPoint{B'}
+            \tkzDefPointBy[rotation= center O angle 30](A'') \tkzGetPoint{K}
+            \tkzInterLL(K,A')(C,D) \tkzGetPoint{A}
+            \tkzInterLL(K,B')(C,D) \tkzGetPoint{B}
+            \tkzInterLL(K,P')(C,D) \tkzGetPoint{P}
+            \tkzInterLL(K,Q')(C,D) \tkzGetPoint{Q}
+            \tkzDrawPoints[black](A,B,P,Q,K,A',B',P',Q')
+            \tkzDrawCircle[black, thick](O,K)
+            \tkzDrawSegments[blue, thick, dashed](A',P' P',B')
+            \tkzDrawSegments[red, thick, dashed](A',Q' Q',B')
+            \tkzDrawSegments[black, thick](A',A B',B P,P' Q',Q)
+            \tkzDrawLine[black, thick, add=0.2 and 0.2](Q,A)
+            \tkzLabelLine[left, pos=-0.2](Q,A){$\ell$}
+            \tkzLabelPoints[left](A',K)
+            \tkzLabelPoints[above](P')
+            \tkzLabelPoints[right](B',Q')
+            \tkzLabelPoints[below](A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+\end{figure}
 \begin{mybox}[定理4]{4.5em}{1em}{0.5em}
     （定理3的極限情況）：在任意圓$\Gamma$上任取四個相異點$A'$、$B'$、$P'$、$Q'$，任取直線$\ell$，
     設$\ell$分別與直線$A'B'$、$A'P'$和$A'Q'$相交於$B$、$P$和$Q$三點，而過$A'$點的切線與直線$\ell$相交於$A$點，則有以下關係式成立：
