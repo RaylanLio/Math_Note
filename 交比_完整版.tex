@@ -2,6 +2,7 @@
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont[AutoFakeBold=2]{SimSun}
+\setCJKmonofont{SimSun}
 %\setCJKsansfont{SimHei}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
@@ -19,6 +20,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{etoolbox}
 \usepackage{xcolor}
+
+\usepackage{hyperref} 
 % 1. 定義一個新的開關，名字可以自訂（例如：showanswer）
 \newtoggle{showanswer}
 
@@ -822,12 +825,11 @@ $$
         &=\left(A',B';P',Q'\right)
     \end{align*}
 \end{mybox}
-\section{調和點列}
-在介紹完有向交比和無向交比的定義及性質後，我們將引入一個非常重要的概念——調和點列。
-這個概念亦是數學競賽中的幾何常見題型，時常配合着角平分線或調和四邊形一起出現。
+\section{涉及無窮遠點的交比}
+以上章節對「交比」的討論都只在「有限平面」內進行。為了使得交比的應用能夠更加廣泛，必須要把「無窮遠點」也加入至交比的領域當中。
 
-介紹調和點列之前，首先要引入另一個概念——無窮遠點：
-\begin{mybox}[無窮遠點]{6em}{1em}{0.5em}
+首先要引入無窮遠點的概念：
+\begin{mybox}[概念]{4em}{1em}{0.5em}
     故名思義，無窮遠點是一個存在於無窮遠處的點。
     
     對於空間上任一條直線，「無窮遠點$\infty$」皆在直線上。
@@ -838,12 +840,94 @@ $$
     $$
         \overrightarrow{A\infty}/\overrightarrow{\infty B}=-1
     $$
-    上式可以視為無窮遠點的「數值定義」。
+    上式可以視為無窮遠點的「數值定義」，詳細定義請參考\url{https://en.wikipedia.org/wiki/Point_at_infinity}。
 \end{mybox}
-\begin{mybox}[調和點列（定義1）]{10.5em}{1em}{0.5em}
-    對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，如果$\left(A,B;P,Q\right)=-1$，則稱四點$A$、$B$、$P$和$Q$為一組\underline{調和點列}。
-\end{mybox}
-\begin{mybox}[調和點列（定義2）]{10.5em}{1em}{0.5em}
-    對於同一直線上的四個相異點$A$、$B$、$P$和$Q$，如果$\left[A,B;P,Q\right]=1$，則稱四點$A$、$B$、$P$和$Q$為一組\underline{調和點列}。
-\end{mybox}
+
+對於共線的四點$A$、$B$、$P$和$Q$，
+無論我們把$Q$點沿$\overrightarrow{AB}$的正方向或是反方向推移至無窮遠處，$\overrightarrow{AQ}/\overrightarrow{QB}$的值是趨向於$-1$的，如圖\ref{fig:cr_right_infinity}和圖\ref{fig:cr_left_infinity}所示。
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-5/0/C, -4/0/A, 2/0/B, 0/0/P, 4/0/Q, 7/0/D}
+            \tkzDefPoints{5/-1/Q', 9/-1/D'}
+            \tkzDrawSegment[black, thick, ->](Q',D')
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzLabelPoints[below](A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-5/0/C, -4/0/A, 2/0/B, 0/0/P, 8/0/Q, 7/0/D}
+            \tkzDefPoints{9/-1/Q', 13/-1/D'}
+            \tkzDrawSegment[black, thick, ->](Q',D')
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzLabelPoints[below](A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-5/0/C, -4/0/A, 2/0/B, 0/0/P, 13/0/Q, 7/0/D}
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzDrawSegment[black, thick, dashed](D,Q)
+            \tkzLabelPoints[below](A,B,P)
+            \tkzLabelPoint[below](Q){$Q=\infty$}
+        \end{tikzpicture}
+    \end{subfigure}
+    \caption{將$Q$點沿$\overrightarrow{AB}$方向推移至無窮遠}
+    \label{fig:cr_right_infinity}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-7/0/C, -2/0/A, 4/0/B, 0/0/P, -4/0/Q, 5/0/D}
+            \tkzDefPoints{-5/-1/Q', -9/-1/C'}
+            \tkzDrawSegment[black, thick, ->](Q',C')
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzLabelPoints[below](A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-7/0/C, -2/0/A, 4/0/B, 0/0/P, -7/0/Q, 5/0/D}
+            \tkzDefPoints{-8/-1/Q', -12/-1/C'}
+            \tkzDrawSegment[black, thick, ->](Q',C')
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzLabelPoints[below](A,B,P,Q)
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.25]
+            \tkzDefPoints{-7/0/C, -2/0/A, 4/0/B, 0/0/P, -12/0/Q, 5/0/D}
+            \tkzDrawPoints[fill=black](A,B,P,Q)
+            \tkzDrawLines[black, thick](C,D)
+            \tkzDrawSegment[black, thick, dashed](C,Q)
+            \tkzLabelPoints[below](A,B,P)
+            \tkzLabelPoint[below](Q){$Q=\infty$}
+        \end{tikzpicture}
+    \end{subfigure}
+    \caption{將$Q$點沿$\overrightarrow{BA}$方向推移至無窮遠}
+    \label{fig:cr_left_infinity}
+\end{figure}
+所以$A$、$B$、$P$和$Q(=\infty)$的交比均為
+$$
+    \left(A,B;P,\infty\right)=\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{A\infty}/\overrightarrow{\infty B}}=-\frac{\overrightarrow{AP}}{\overrightarrow{PB}}
+$$
+
 \end{document}
