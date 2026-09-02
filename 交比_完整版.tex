@@ -64,7 +64,7 @@
 \renewcommand{\figurename}{圖}
 \lhead{廖汶鋒}
 \chead{交比}
-\rhead{澳門培道中學}
+\rhead{數學筆記}
 \fancyfoot[C]{\thepage} % Centered footer
 %\fancyfoot[L]{2026年2月7日} % Left footer
 
@@ -827,20 +827,15 @@ $$
 \end{mybox}
 \section{涉及無窮遠點的交比}
 以上章節對「交比」的討論都只在「有限平面」內進行。為了使得交比的應用能夠更加廣泛，必須要把「無窮遠點」也加入至交比的領域當中。
-
-首先要引入無窮遠點的概念：
-\begin{mybox}[概念]{4em}{1em}{0.5em}
-    故名思義，無窮遠點是一個存在於無窮遠處的點。
-    
-    對於空間上任一條直線，「無窮遠點$\infty$」皆在直線上。
-
-    在歐氏幾何中，一對平行線永不相交，但是在射影幾何中，一對平行線是會相交於「無窮遠點$\infty$」的。
-
+\subsection{無窮遠點}
+故名思義，無窮遠點是一個存在於無窮遠處的點。對於空間上任一條直線，「無窮遠點$\infty$」皆在直線上。
+在歐氏幾何中，一對平行線永不相交，但是在射影幾何中，一對平行線是會相交於「無窮遠點$\infty$」的。
+\begin{mybox}[數值定義]{6em}{1em}{0.5em}
     對於任意兩點$A$、$B$，無窮遠點$\infty$的有向分割比為
     $$
         \overrightarrow{A\infty}/\overrightarrow{\infty B}=-1
     $$
-    上式可以視為無窮遠點的「數值定義」，詳細定義請參考\url{https://en.wikipedia.org/wiki/Point_at_infinity}。
+    詳細定義請參考\url{https://en.wikipedia.org/wiki/Point_at_infinity}。
 \end{mybox}
 
 對於共線的四點$A$、$B$、$P$和$Q$，
@@ -929,8 +924,8 @@ $A$、$B$、$P$和$Q(=\infty)$的交比均為
 $$
     \left(A,B;P,\infty\right)=\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{A\infty}/\overrightarrow{\infty B}}=-\frac{\overrightarrow{AP}}{\overrightarrow{PB}}
 $$
-
 按照上述結論，直線任一端的無窮遠點與其餘三點所形成的交比均是一致的，所以我們只需要討論直線任一側的無窮遠點即可。
+\subsection{交比定理（含無窮遠點）}
 
-把無窮遠點帶入至交比定理中，則有以下定理成立：
+
 \end{document}
