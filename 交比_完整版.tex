@@ -925,7 +925,76 @@ $$
     \left(A,B;P,\infty\right)=\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{A\infty}/\overrightarrow{\infty B}}=-\frac{\overrightarrow{AP}}{\overrightarrow{PB}}
 $$
 按照上述結論，直線任一端的無窮遠點與其餘三點所形成的交比均是一致的，所以我們只需要討論直線任一側的無窮遠點即可。
+\subsection{有向分比定理（含無窮遠點）}
+\begin{mybox}[定理 3]{4.5em}{1em}{0.5em}
+    對於直線 $AB$ 及其外的任意一點 $K$，作一條平行於 $AB$ 的直線 $KQ'$，則有
+    $$
+        -1=\frac{\overrightarrow{A\infty}}{\overrightarrow{\infty B}}
+        =\frac{KA}{KB}\cdot\frac{\sin{\measuredangle{\overrightarrow{AKQ'}}}}{\sin{\measuredangle{\overrightarrow{Q'KB}}}}
+    $$
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale = 1.2]
+            \tkzDefPoints{0/0/K, -1/-2/A, 0.5/-2/P, 3/-2/B, 6/-2/C, 2/0/Q', 6/0/D}
+            \tkzDrawPoints[fill=black](A,B,Q',K,C,D)
+            \tkzDrawLines[black, thick](A,B K,Q' K,A K,B)
+            \tkzLabelPoints[above right](B,Q')
+            \tkzLabelPoints[above left](A)
+            \tkzLabelPoint[above right](K){$K$}
+            %\tkzLabelLine[below, pos=1.2](K,A){$\ell_1$}
+            %\tkzLabelLine[below, pos=1.2](K,B){$\ell_2$}
+            %\tkzLabelLine[below, pos=1.2](K,P){$\ell_3$}
+            %\tkzLabelLine[left, pos=-0.2](K,Q'){$\ell_4$}
+            %\tkzLabelLine[left, pos=-0.2](A,B){$\ell'$}
+            %\tkzPicAngle[draw=red, thick, ->, angle radius = 20](A,K,P)
+            %\tkzPicAngle[draw=red, thick, ->, angle radius = 25](P,K,B)
+            \tkzPicAngle[draw=blue, thick, ->, angle radius = 30](A,K,Q')
+            \tkzPicAngle[draw=blue, thick, <-, angle radius = 35](B,K,Q')
+            \tkzDrawSegment[black, thick, dashed](Q',D)
+            \tkzDrawSegment[black, thick, dashed](B,C)
+            \tkzLabelPoint[right](C){$Q=\infty$}
+            \tkzLabelPoint[right](D){$Q=\infty$}
+        \end{tikzpicture}
+        \caption{有向分比定理（含無窮遠點）}
+        \label{fig:dr_infty}
+    \end{figure}
+\end{mybox}
 \subsection{交比定理（含無窮遠點）}
-
+\begin{mybox}[定理 4]{4.5em}{1em}{0.5em}
+    在平面內任取一點$K$及四條通過$K$點的相異直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
+    任取一條平行於$\ell_4$的直線$\ell'$，使其與直線$\ell_1$、$\ell_2$和$\ell_3$相交於$A$、$B$和$P$三點。
+    在直線$\ell_4$上任取一點$Q'\neq K$，則線分比滿足
+    $$
+        \left(A,B;P,\infty\right)
+        =\frac{\sin{\textcolor{red}{\measuredangle{\overrightarrow{AKP}}}}/\sin{\textcolor{red}{\measuredangle{\overrightarrow{PKB}}}}}
+        {\sin{\textcolor{blue}{\measuredangle{\overrightarrow{AKQ'}}}}/\sin{\textcolor{blue}{\measuredangle{\overrightarrow{Q'KB}}}}}
+    $$
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale = 1.2]
+            \tkzDefPoints{0/0/K, -1/-2/A, 0.5/-2/P, 3/-2/B, 6/-2/C, 2/0/Q', 6/0/D}
+            \tkzDrawPoints[fill=black](A,B,P,Q',K,C,D)
+            \tkzDrawLines[black, thick](A,B K,Q' K,A K,B K,P)
+            \tkzLabelPoints[above right](B,Q')
+            \tkzLabelPoints[above left](A,P)
+            \tkzLabelPoint[above right](K){$K$}
+            \tkzLabelLine[below, pos=1.2](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.2](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.2](K,P){$\ell_3$}
+            \tkzLabelLine[left, pos=-0.2](K,Q'){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,B){$\ell'$}
+            \tkzPicAngle[draw=red, thick, ->, angle radius = 20](A,K,P)
+            \tkzPicAngle[draw=red, thick, ->, angle radius = 25](P,K,B)
+            \tkzPicAngle[draw=blue, thick, ->, angle radius = 30](A,K,Q')
+            \tkzPicAngle[draw=blue, thick, <-, angle radius = 35](B,K,Q')
+            \tkzDrawSegment[black, thick, dashed](Q',D)
+            \tkzDrawSegment[black, thick, dashed](B,C)
+            \tkzLabelPoint[right](C){$Q=\infty$}
+            \tkzLabelPoint[right](D){$Q=\infty$}
+        \end{tikzpicture}
+        \caption{線交比定理（含無窮遠點）}
+        \label{fig:cr_bundle_Line_infty}
+    \end{figure}
+\end{mybox}
 
 \end{document}

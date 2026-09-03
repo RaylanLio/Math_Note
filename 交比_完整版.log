@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  2 SEP 2026 19:16
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  3 SEP 2026 15:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1069,21 +1069,21 @@ Overfull \hbox (2.26814pt too wide) in paragraph at lines 918--919
  [][] 
  []
 
-[11] (./交比_完整版.aux)
+[11] [12] (./交比_完整版.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `交比_完整版.out' has not changed.
-(rerunfilecheck)             Checksum: A74D21D09B5AF4442DD3A8439ECDD00D;641.
+(rerunfilecheck)             Checksum: 99EC7DD1A488BE27612272089D713E8F;802.
  ) 
 Here is how much of TeX's memory you used:
- 38717 strings out of 470148
- 879046 string characters out of 5478126
- 1451358 words of memory out of 5000000
- 66605 multiletter control sequences out of 15000+600000
+ 38741 strings out of 470148
+ 879547 string characters out of 5478126
+ 1452451 words of memory out of 5000000
+ 66629 multiletter control sequences out of 15000+600000
  634097 words of font info for 85 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  102i,26n,107p,1172b,1514s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 交比_完整版.pdf (11 pages).
+Output written on 交比_完整版.pdf (12 pages).
