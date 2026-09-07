@@ -959,6 +959,48 @@ $$
         \label{fig:dr_infty}
     \end{figure}
 \end{mybox}
+\begin{mybox}[解釋]{4em}{1em}{0.5em}
+    把無窮遠點$\infty$用符號$Q$表示，利用一般的有向分比定理可知
+    $$
+        \frac{\overrightarrow{AQ}}{\overrightarrow{QB}}=\frac{KA}{KB}\cdot\frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
+    $$
+    再者有
+    \begin{align*}
+        \measuredangle{\overrightarrow{AKQ}} &= \measuredangle{\overrightarrow{AKQ'}}+ \measuredangle{\overrightarrow{Q'KQ}} \\
+        \measuredangle{\overrightarrow{QKB}} &= \measuredangle{\overrightarrow{Q'KB}}+ \measuredangle{\overrightarrow{QKQ'}}
+    \end{align*}
+    且 $\measuredangle{\overrightarrow{Q'KQ}}=\measuredangle{\overrightarrow{QKQ'}}=\pi$或$0$，所以有
+    $$
+        \frac{\sin{\measuredangle{\overrightarrow{AKQ}}}}{\sin{\measuredangle{\overrightarrow{QKB}}}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKQ'}}}}{\sin{\measuredangle{\overrightarrow{Q'KB}}}}
+    $$
+    由此可見，有向分比定理亦適用於分點為無窮遠點的情況。
+\end{mybox}
+\begin{mybox}{4em}{1em}{0.5em}
+    只需要完成以下證明即可：
+    $$
+        \frac{KA}{KB} = -\frac{\sin{\measuredangle{\overrightarrow{Q'KB}}}}{\sin{\measuredangle{\overrightarrow{AKQ'}}}}
+    $$
+    首先，對 $\triangle{KAB}$ 使用正弦定理可知
+    $$
+        \frac{AK}{KB} = \frac{\sin{\measuredangle{\overrightarrow{ABK}}}}{\sin{\measuredangle{\overrightarrow{KAB}}}} = 
+        \frac{\sin{\measuredangle{\left(\overrightarrow{BA},\overrightarrow{BK}\right)}}}{\sin{\measuredangle{\left(\overrightarrow{AK},\overrightarrow{AB}\right)}}} 
+        = -\frac{\sin{\measuredangle{\left(\overrightarrow{AB},\overrightarrow{KB}\right)}}}{\sin{\measuredangle{\left(\overrightarrow{KA},\overrightarrow{AB}\right)}}}
+    $$
+    然後，上式最右式的有向角可拆解為
+    \begin{align*}
+        \measuredangle{\left(\overrightarrow{AB},\overrightarrow{KB}\right)} &= \measuredangle{\left(\overrightarrow{AB},\overrightarrow{KQ'}\right)} + \measuredangle{\left(\overrightarrow{KQ'},\overrightarrow{KB}\right)} = \measuredangle{\left(\overrightarrow{AB},\overrightarrow{KQ'}\right)} + \measuredangle{\overrightarrow{Q'KB}}\\
+        \measuredangle{\left(\overrightarrow{KA},\overrightarrow{AB}\right)} &= \measuredangle{\left(\overrightarrow{KA},\overrightarrow{KQ'}\right)} + \measuredangle{\left(\overrightarrow{KQ'},\overrightarrow{AB}\right)} = \measuredangle{\overrightarrow{AKQ'}} + \measuredangle{\left(\overrightarrow{KQ'},\overrightarrow{AB}\right)}
+    \end{align*}
+    因為 $AB \parallel KQ'$，所以有 $\left(\overrightarrow{AB}, \overrightarrow{KQ'}\right) = \left(\overrightarrow{KQ'}, \overrightarrow{AB}\right) = \pi$ 或 $0$，因此有
+    $$
+    \frac{\measuredangle{\left(\overrightarrow{AB},\overrightarrow{KB}\right)}}{\measuredangle{\left(\overrightarrow{KA},\overrightarrow{AB}\right)}} = \frac{\sin{\measuredangle{\overrightarrow{Q'KB}}}}{\sin{\measuredangle{\overrightarrow{AKQ'}}}}
+    $$
+    即
+    $$
+        \frac{KA}{KB} = -\frac{\sin{\measuredangle{\left(\overrightarrow{AB},\overrightarrow{KB}\right)}}}{\sin{\measuredangle{\left(\overrightarrow{KA},\overrightarrow{AB}\right)}}} = -\frac{\sin{\measuredangle{\overrightarrow{Q'KB}}}}{\sin{\measuredangle{\overrightarrow{AKQ'}}}}
+    $$
+\end{mybox}
 \subsection{交比定理（含無窮遠點）}
 \begin{mybox}[定理 4]{4.5em}{1em}{0.5em}
     在平面內任取一點$K$及四條通過$K$點的相異直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
@@ -996,5 +1038,7 @@ $$
         \label{fig:cr_bundle_Line_infty}
     \end{figure}
 \end{mybox}
-
+\begin{mybox}{4em}{1em}{0.5em}
+    
+\end{mybox}
 \end{document}
