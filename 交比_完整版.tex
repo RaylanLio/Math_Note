@@ -1004,7 +1004,7 @@ $$
 \subsection{交比定理（含無窮遠點）}
 \begin{mybox}[定理 4]{4.5em}{1em}{0.5em}
     在平面內任取一點$K$及四條通過$K$點的相異直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
-    任取一條平行於$\ell_4$的直線$\ell'$，使其與直線$\ell_1$、$\ell_2$和$\ell_3$相交於$A$、$B$和$P$三點。
+    任取一條平行於$\ell_4$的直線$\ell$，使其與直線$\ell_1$、$\ell_2$和$\ell_3$相交於$A$、$B$和$P$三點。
     在直線$\ell_4$上任取一點$Q'\neq K$，則線分比滿足
     $$
         \left(A,B;P,\infty\right)
@@ -1024,7 +1024,7 @@ $$
             \tkzLabelLine[below, pos=1.2](K,B){$\ell_2$}
             \tkzLabelLine[below, pos=1.2](K,P){$\ell_3$}
             \tkzLabelLine[left, pos=-0.2](K,Q'){$\ell_4$}
-            \tkzLabelLine[left, pos=-0.2](A,B){$\ell'$}
+            \tkzLabelLine[left, pos=-0.2](A,B){$\ell$}
             \tkzPicAngle[draw=red, thick, ->, angle radius = 20](A,K,P)
             \tkzPicAngle[draw=red, thick, ->, angle radius = 25](P,K,B)
             \tkzPicAngle[draw=blue, thick, ->, angle radius = 30](A,K,Q')
@@ -1039,6 +1039,48 @@ $$
     \end{figure}
 \end{mybox}
 \begin{mybox}{4em}{1em}{0.5em}
-    
+    利用有向分比定理（含定理 3）可得
+    $$
+        \left(A,B;P,\infty\right)=\frac{\overrightarrow{AP}/\overrightarrow{PB}}{\overrightarrow{A\infty}/\overrightarrow{\infty B}}
+        =\frac{\frac{KA}{KB}\cdot\frac{\sin{\measuredangle{\overrightarrow{AKP}}}}{\sin{\measuredangle{\overrightarrow{PKB}}}}}{\frac{KA}{KB}\cdot\frac{\sin{\measuredangle{\overrightarrow{AKQ'}}}}{\sin{\measuredangle{\overrightarrow{Q'KB}}}}}
+        =\frac{\sin{\measuredangle{\overrightarrow{AKP}}}/\sin{\measuredangle{\overrightarrow{PKB}}}}{\sin{\measuredangle{\overrightarrow{AKQ'}}}/\sin{\measuredangle{\overrightarrow{Q'KB}}}}
+    $$
+\end{mybox}
+\begin{mybox}[定理 5]{4.5em}{1em}{0.5em}
+    在平面內任取一點$K$及四條通過$K$點的相異直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$。
+    任取一條平行於$\ell_4$的直線$\ell$，使其與直線$\ell_1$、$\ell_2$和$\ell_3$相交於$A$、$B$和$P$三點。
+    再取另一條不通過 $K$ 點的直線 $\ell'$，使其與直線$\ell_1$、$\ell_2$、$\ell_3$和$\ell_4$分別相交於$A'$、$B'$、$P'$和$Q'$四點，則線分比滿足
+    $$
+        \left(A,B;P,\infty\right)=\left(A',B';P',Q'\right)
+    $$
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale = 1.2]
+            \tkzDefPoints{0/0/K, -1/-2/A, 0.5/-2/P, 3/-2/B, 6/-2/C, 2/0/Q', 6/0/D, -0.5/-1/A'}
+            \tkzInterLL(A',Q')(K,B) \tkzGetPoint{B'}
+            \tkzInterLL(A',Q')(K,P) \tkzGetPoint{P'}
+            \tkzDrawPoints[fill=black](A,B,P,Q',A',B',P',K,C,D)
+            \tkzDrawLines[black, thick](A,B K,Q' K,A K,B K,P A',Q')
+            \tkzLabelPoints[above right](B',B,Q')
+            \tkzLabelPoints[above left](A',A,P)
+            \tkzLabelPoints[below right](P')
+            \tkzLabelPoint[above right](K){$K$}
+            \tkzLabelLine[below, pos=1.2](K,A){$\ell_1$}
+            \tkzLabelLine[below, pos=1.2](K,B){$\ell_2$}
+            \tkzLabelLine[below, pos=1.2](K,P){$\ell_3$}
+            \tkzLabelLine[left, pos=-0.2](K,Q'){$\ell_4$}
+            \tkzLabelLine[left, pos=-0.2](A,B){$\ell$}
+            \tkzLabelLine[left, pos=-0.2](A',Q'){$\ell'$}
+            \tkzDrawSegment[black, thick, dashed](Q',D)
+            \tkzDrawSegment[black, thick, dashed](B,C)
+            \tkzLabelPoint[right](C){$Q=\infty$}
+            \tkzLabelPoint[right](D){$Q=\infty$}
+        \end{tikzpicture}
+        \caption{性質 4 的延伸（含無窮遠點）}
+        \label{fig:cr_ll_infty}
+    \end{figure}
+\end{mybox}
+\begin{mybox}{4em}{1em}{0.5em}
+    此定理的證明與性質 4 的證明過程完全相同，只需要將定理 1 改為 定理 4 即可。
 \end{mybox}
 \end{document}
