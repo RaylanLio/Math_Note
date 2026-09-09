@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  7 SEP 2026 18:50
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  8 SEP 2026 11:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1028,7 +1028,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ] [2] [3] [4] [5]
-Overfull \hbox (15.26295pt too wide) detected at line 461
+Overfull \hbox (15.26295pt too wide) detected at line 463
 []
  []
 
@@ -1060,12 +1060,12 @@ Package fontspec Info:
 (fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
 
 
-Overfull \hbox (9.38132pt too wide) in paragraph at lines 878--879
+Overfull \hbox (9.38132pt too wide) in paragraph at lines 880--881
  [][] 
  []
 
 
-Overfull \hbox (2.26814pt too wide) in paragraph at lines 918--919
+Overfull \hbox (2.26814pt too wide) in paragraph at lines 920--921
  [][] 
  []
 
@@ -1075,13 +1075,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `交比_完整版.out' has not changed.
-(rerunfilecheck)             Checksum: 99EC7DD1A488BE27612272089D713E8F;802.
+(rerunfilecheck)             Checksum: 2EF1A899B453C5828C3F529C73CA3D28;1041.
  ) 
 Here is how much of TeX's memory you used:
- 38751 strings out of 470148
- 879718 string characters out of 5478126
- 1452500 words of memory out of 5000000
- 66639 multiletter control sequences out of 15000+600000
+ 38752 strings out of 470148
+ 879730 string characters out of 5478126
+ 1455378 words of memory out of 5000000
+ 66640 multiletter control sequences out of 15000+600000
  634097 words of font info for 85 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  102i,26n,107p,1172b,1514s stack positions out of 10000i,1000n,20000p,200000b,200000s
