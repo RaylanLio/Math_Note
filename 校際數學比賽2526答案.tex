@@ -314,9 +314,9 @@
 \begin{mybox}[Answer]{6em}{1em}{\Ap}
     代入$x_1=x_2=x_3=x_4=1/4$，算得和式為$3/4$。下面證明$3/4$為和式最大值：
     \begin{align*}
-        &\sum_{1\leq i<j\leq 4}{\left(x_i+x_j\right)\sqrt{x_ix_j}}\leq\frac{3}{4}=\frac{3}{4}\left(\sum_{i=1}^{4}{x_i}\right)\\
+        &\sum_{1\leq i<j\leq 4}{\left(x_i+x_j\right)\sqrt{x_ix_j}}\leq\frac{3}{4}=\frac{3}{4}\left(\sum_{i=1}^{4}{x_i}\right)^2\\
         \Leftrightarrow\quad&\sum_{1\leq i<j\leq 4}{\left(x_i+x_j\right)\sqrt{x_ix_j}}\leq\frac{3}{4}\left(\sum_{i=1}^{4}{x_i^2}+2\sum_{1\leq i<j\leq 4}{x_ix_j}\right)\\
-        \Leftrightarrow\quad&\sum_{1\leq i<j\leq 4}{\left(x_i-\sqrt{x_ix_j}+x_j\right)\sqrt{x_ix_j}}\leq\frac{3}{4}\sum_{i=1}^{4}{x_i^2}-\frac{1}{2}\sum_{1\leq i<j\leq 4}{x_ix_j}\\
+        \Leftrightarrow\quad&\sum_{1\leq i<j\leq 4}{\left(x_i-2\sqrt{x_ix_j}+x_j\right)\sqrt{x_ix_j}}\leq\frac{3}{4}\sum_{i=1}^{4}{x_i^2}-\frac{1}{2}\sum_{1\leq i<j\leq 4}{x_ix_j}\\
         \Leftrightarrow\quad&4\sum_{1\leq i<j\leq 4}{\left(\sqrt{x_i}-\sqrt{x_j}\right)^2\sqrt{x_ix_j}}\leq\sum_{1\leq i<j\leq 4}{\left(x_i-x_j\right)^2}\\
         \Leftrightarrow\quad&\sum_{1\leq i<j\leq 4}{\left(\sqrt{x_i}-\sqrt{x_j}\right)^2\left[\left(\sqrt{x_i}+\sqrt{x_j}\right)^2-4\sqrt{x_ix_j}\right]}\geq 0\\
         \Leftrightarrow\quad&\sum_{1\leq i<j\leq 4}{\left(\sqrt{x_i}-\sqrt{x_j}\right)^4}\geq 0
