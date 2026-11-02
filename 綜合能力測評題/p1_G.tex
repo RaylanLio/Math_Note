@@ -1,0 +1,65 @@
+\INDEX{問題1}設$\Omega$與$\Gamma$分別是以後$M,N$為圓心的圓，且圓$\Omega$的半徑小於圓$\Gamma$的半徑。
+設$\Omega$與$\Gamma$交於相異兩點$A,B$。直線$MN$與圓$\Omega$交於點$C$、與圓$\Gamma$交於點$D$，
+且$C,M,N,D$四點依此順序落在該直線上。直線$AP$與圓$\Omega$交於點$E\neq A$、與圓$\Gamma$再交於點$F\neq A$。
+令點$H$為$\triangle{PMN}$的垂心。\\[0.5em]
+\textbf{求證：}通過$H$且平行於$AP$的直線$l$，與$\triangle{BEF}$的外接圓相切。
+
+\begin{center} % p1示意圖
+  \begin{tikzpicture}[scale=0.9]
+      % --- 1. 定義圓心 M, N 與半徑 ---
+      \tkzDefPoint(-2,0){M}
+      \tkzDefPoint(3,0){N}
+      \def\rO{2}
+      \def\rG{4}
+      
+      % --- 2. 定義直線 MN 上的 C, D (確保 C, M, N, D 順序) ---
+      \tkzDefPoint(-2-\rO,0){C}
+      \tkzDefPoint(3+\rG,0){D}
+      
+      % --- 3. 繪製兩圓 Omega, Gamma ---
+      \tkzDrawCircle[thick,black](M,C)
+      \tkzDrawCircle[thick,black](N,D)
+      
+      % --- 4. 求兩圓交點 A, B ---
+      \tkzInterCC(M,C)(N,D) \tkzGetPoints{A}{B}
+      
+      % --- 5. 定義 P 為三角形 ACD 的外心 ---
+      \tkzCircumCenter(A,C,D) \tkzGetPoint{P}
+      %\tkzDrawCircle[dashed, cyan](P,A) % 繪製 ACD 的外接圓供參考
+      \tkzDrawArc[color=red, dashed](P,D)(C)
+      % --- 6. 構造割線 AP 並求交點 E, F ---
+      \tkzInterLC(A,P)(M,C) \tkzGetPoints{E}{A_tmp}
+      \tkzInterLC(A,P)(N,D) \tkzGetPoints{A_tmp2}{F}
+      
+      % --- 7. 計算三角形 PMN 的垂心 H ---
+      \tkzOrthoCenter(P,M,N) \tkzGetPoint{H}
+      
+      % --- 8. 繪製三角形 BEF 的外接圓 ---
+      \tkzCircumCenter(B,E,F) \tkzGetPoint{O_BEF}
+      \tkzDrawCircle[dashed, black](O_BEF,B)
+      
+      % --- 9. 繪製通過 H 且平行於 AP 的切線 l ---
+      \tkzDefLine[parallel=through H](A,P) \tkzGetPoint{l_dir}
+      \tkzDrawLine[blue, thick, add=0.2 and -0.7](H,l_dir)
+      
+      % --- 10. 繪製線段與標籤 ---
+      \tkzDrawLines[add=0.1 and 0.1](C,D)
+      \tkzDrawSegments(A,P P,M P,N A,B B,E B,F)
+      \tkzDrawPoints[fill=black](M,N,A,B,C,D,E,F,P,H)
+      
+      \tkzLabelPoints[above](M,N)
+      \tkzLabelPoints[above left](C)
+      \tkzLabelPoints[above right](D,H)
+      \tkzLabelPoints[above left](B)
+      \tkzLabelPoints[above](A)
+      \tkzLabelPoints[below](P)
+      \tkzLabelPoints[below right](E)
+      \tkzLabelPoints[below left](F)
+      
+      \node at (-2-\rO*0.8,\rO*0.8) {$\Omega$};
+      \node at (3+\rG*0.8,\rG*0.8) {$\Gamma$};
+      \coordinate (l_1) at ($(H)!0.2!(l_dir)$);
+      \node[blue, right] at (l_1) {$l$};
+
+  \end{tikzpicture}
+\end{center} 

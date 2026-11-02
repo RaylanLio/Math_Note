@@ -1,0 +1,145 @@
+\INDEX{證明：}\setcounter{equation}{0}
+首先，留意到 $m_0$ 具有「最小性」，所以我們要知道，\textbf{極端性原理}將會是解題的關鍵方式。
+\begin{quotation}
+  極端性原理通俗來說，就是「如果是 $X$ 是最大（小）的，那麼其他數 $y$ 都不可能比 $X$ 大（小）。」
+\end{quotation}
+然後，我們要嘗試描繪這個 $m_0$-有趣數列的「形狀」——盡可能找出把這個數列的特徵，
+這個過程必須要善用反證法和極端性原理。
+
+\textbf{第一步：}我們要觀察數列的「頭」和「尾」：
+取一個 $m_0$-有趣數列 $\left\{a_n\right\}_{n=1}^{m_0}$，
+
+如果 $i_1>1$ 或 $i_{10}<m_0$，我們可以觀察「紅色」的子數列： 
+\begin{equation*}
+  a_1,a_2,\cdots,\color{red}{a_{i_1},a_{i_1+1},\cdots,a_{i_2},a_{i_2+1},\cdots,a_{i_{10}}}\color{black}{,a_{i_{10}+1},\cdots,a_{m_0}}
+\end{equation*}
+數列$\left\{a_n\right\}_{n=i_1}^{i_{10}}$顯然也滿足條件 (i) 和 (ii)，
+但是數列長度為 $i_{10}-i_1+1<m_0$，與 $m_0$ 的最小性矛盾。
+
+由此可得出\textbf{結論一：}\fbox{$m_0$-有趣數列必須滿足 $i_1=1$ 且 $i_{10}=m_0$}，剪去了有趣數列的「頭」和「尾」。
+
+\textbf{第二步：}我們要觀察數列的「節」：觀察 $m_0$-有趣數列 $\left\{a_n\right\}_{n=1}^{m_0}$ 的中間部分
+$$
+  a_{i_k},\color{red}{a_{i_k+1},a_{i_k+2},\cdots,a_{i_{k+1}-1}}\color{black}{,a_{i_{k+1}}}
+$$
+紅色部分有 $i_{k+1}-i_k-1$ 個元素。利用條件 (i) 可以得到以下神奇的變換：
+\begin{equation}
+  i_{k+1}-i_k=\sum_{j=i_k}^{i_{k+1}-1}{1}=\sum_{j=i_k}^{i_{k+1}-1}{\left|a_{j+1}-a_j\right|}\geq\left|\sum_{j=i_k}^{i_{k+1}-1}{\left(a_{j+1}-a_j\right)}\right|=|a_{i_{k+1}}-a_{i_k}|\label{eq:p3_s1}
+\end{equation}
+不等式 (\ref{eq:p3_s1}) 的等號成立的條件是所有 $a_{j+1}-a_j$ 同號，
+即子數列$\left\{a_j\right\}_{j=i_k}^{i_{k+1}}$嚴格單調遞增或遞減（以下統稱「嚴格單調」）。
+
+相反，如果子數列$\left\{a_j\right\}_{j=i_k}^{i_{k+1}}$不是嚴格單調的，
+則不等式 (\ref{eq:p3_s1}) 中的「$\geq$」直接變成「$>$」。這意味着我們可以把「紅色」子數列按照以下的情況替換成「藍色」子數列：
+\begin{itemize}
+  \item 如果 $a_{i_k}<a_{i_{k+1}}$，則「藍色」子數列為$a_{i_k},\color{blue}{a_{i_k}+1,a_{i_k}+2,\cdots,a_{i_{k+1}}-1}\color{black}{,a_{i_{k+1}}}$
+  \item 如果 $a_{i_k}>a_{i_{k+1}}$，則「藍色」子數列為$a_{i_k},\color{blue}{a_{i_k}-1,a_{i_k}-2,\cdots,a_{i_{k+1}}+1}\color{black}{,a_{i_{k+1}}}$
+\end{itemize}
+此時得到另一個數列 $a_1,a_2,\cdots,a_{i_k},\color{blue}{a_{i_k}\pm1,a_{i_k}\pm2,\cdots,a_{i_{k+1}}\mp1}\color{black}{,a_{i_{k+1}},a_{i_{k+1}+1},\cdots,a_{m_0}}$，
+亦滿足條件 (i) 和 (ii)，但是數列長度比 $m_0$ 短 $i_{k+1}-i_k-|a_{i_{k+1}}-a_{i_k}|>0$，與 $m_0$ 的最小性矛盾。
+
+由此可得出\textbf{結論二：}\fbox{$m_0$-有趣數列$\left\{a_n\right\}_{n=1}^{m_0}$的子數列$\left\{a_j\right\}_{j=i_k}^{i_{k+1}}$必須嚴格單調，即是公差為 $\pm1$ 的等差數列}。
+
+\textbf{第三步：}我們要考察$m_0$-有趣數列的等比子數列$\left\{a_{i_k}\right\}_{k=1}^{10}$的公比 $q$ ：
+
+利用合比定理可知
+\begin{equation}
+  q=\frac{a_{i_3}}{a_{i_2}}=\frac{a_{i_2}}{a_{i_1}}=\frac{a_{i_3}-a_{i_2}}{a_{i_2}-a_{i_1}}\label{eq:p3_s2}
+\end{equation}
+第二步的推論如下：
+\begin{equation}
+  \left|a_{i_{k+1}}-a_{i_k}\right|=i_{k+1}-i_k,\ k=1,2,\cdots,9\label{eq:p3_s3}
+\end{equation}
+結合(\ref{eq:p3_s3})可知
+\begin{equation}
+  |q|=\left|\frac{a_{i_3}-a_{i_2}}{a_{i_2}-a_{i_1}}\right|=\frac{i_3-i_2}{i_2-i_1}\in\mathbb{Q}\label{eq:p3_s4}
+\end{equation}
+再由(\ref{eq:p3_s3})可知
+\begin{equation}
+  |a_1\left(q-1\right)|=|a_{i_2}-a_{i_1}|=i_2-i_1\in\mathbb{Z}^+\label{eq:p3_s5}
+\end{equation}
+由此可得出\textbf{結論三：}\fbox{公比 $q$ 是有理數且 $\left|a_1\left(q-1\right)\right|$ 是正整數}。
+
+\textbf{第四步：}我們可以先做計算一次 $m_0$ ：
+
+利用第一步的結論、第二步的推論和等比數列通項公式可知
+\begin{align}
+  m_0&=1+m_0-1\notag\\
+  &=1+i_{10}-i_1\tag{第一步的結論}\\
+  &=1+\sum_{k=1}^{9}{\left(i_{k+1}-i_k\right)}\notag\\
+  &=1+\sum_{k=1}^{9}{\left|a_{i_{k+1}}-a_{i_k}\right|}\tag{第二步的推論}\\
+  &=1+\left|q-1\right|\sum_{k=1}^{9}{|a_{i_k}|}\notag\\
+  &=1+\left|a_1\left(q-1\right)\right|\sum_{k=1}^{9}{|q|^{k-1}}\label{eq:p3_s6}
+\end{align}
+既然 $m_0$ 具有最小性，我們必須規限 $\left|a_1\left(q-1\right)\right|$ 和 $|q|$ 的下界。
+
+容易得知，如果我們把 $m_0$-有趣數列 $\left\{a_n\right\}_{n=1}^{m_0}$進行「倒序」操作
+$$
+  b_n=a_{m_0+1-n},\ n=1,2,\cdots,m_0
+$$
+得到的數列 $\left\{b_n\right\}_{n=1}^{m_0}$ 也是 $m_0$-有趣的，其中的等比子數列 $\left\{b_{j_k}\right\}_{k=1}^{10}=\left(a_{i_{10}},a_{i_9},\cdots,a_{i_1}\right)$ 的公比 $q_b = 1/q$。
+由此可知，$\left\{a_n\right\}_{n=1}^{m_0}$ 及其倒序數列 $\left\{b_n\right\}_{n=1}^{m_0}=\left\{a_{m_0+1-n}\right\}_{n=1}^{m_0}$ 的等比子數列之公比絕對值 $|q|$ 和 $|q_b|$ 之間，有且只有一個小於1。
+
+不妨假設 $|q|<1$，配合結論三可設 $|q|=M/N$，其中 $M,N\in\mathbb{Z}^+$，$M<N$ 且 $\gcd\left(M,N\right)=1$。
+
+再由式(\ref{eq:p3_s3})及等比數列的通項公式可知
+\begin{equation}
+  i_{10}-i_9=\left|a_{i_{10}}-a_{i_9}\right|=\left|a_1\left(q-1\right)\right|\left|q\right|^8=\frac{\left|a_1\left(1-q\right)\right|M^8}{N^8}\ \Rightarrow\ N^8\left|\left[a_1\left(1-q\right)\right]M^8\right.
+\end{equation}
+因為 $\gcd\left(M,N\right)=1$，所以有 $N^8|a_1\left(1-q\right)$，記 $K=\dfrac{\left|a_1\left(1-q\right)\right|}{N^8}\in\mathbb{Z}^+$，那麼(\ref{eq:p3_s6})可改寫成
+\begin{align}
+  m_0&=1+\left|a_1\left(q-1\right)\right|\sum_{k=1}^{9}{\frac{M^{k-1}}{N^{k-1}}}\notag\\
+  &=1+\frac{\left|a_1\left(q-1\right)\right|}{N^8}\sum_{k=1}^{9}{\frac{M^{k-1}N^8}{N^{k-1}}}\notag\\
+  &=1+K\sum_{k=1}^{9}{M^{k-1}N^{9-k}}\notag\\
+  &\geq1+1\times\sum_{k=1}^{9}{M^{k-1}\left(M+1\right)^{9-k}}\notag\\
+  &\geq1+\sum_{k=1}^{9}{1^{k-1}\left(1+1\right)^{9-k}}\notag\\
+  &=2^9\label{eq:p3_s7}
+\end{align}
+式(\ref{eq:p3_s7})的等號成立條件是 $K=M=1$ 且 $N=M+1=2$，此時 $|q|=1/2$，$|a_1\left(1-q\right)|=2^8$，此表示以下四組的等號成立條件：
+\begin{equation}
+  \left\{\begin{matrix}
+    q=1/2\\
+    a_1=2^9
+  \end{matrix}\right.\ 
+  \left\{\begin{matrix}
+    q=1/2\\
+    a_1=-2^9
+  \end{matrix}\right.\ 
+  \left\{\begin{matrix}
+    q=-1/2\\
+    a_1=2^9/3
+  \end{matrix}\right.\ 
+  \left\{\begin{matrix}
+    q=-1/2\\
+    a_1=-2^9/3
+  \end{matrix}\right.
+\end{equation}
+第一組等號成立條件可以得到的有趣數列是 $a_n=513-n, n=1,2,\cdots,512$；
+
+第二組等號成立條件可以得到的有趣數列是 $a_n=-513+n, n=1,2,\cdots,512$；
+
+第三組等號成立條件可以得到的有趣數列是
+\begin{table}[htbp]
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \centering
+  \begin{tabular}{cccccccccccccccccc}
+    $\dfrac{2^9}{3}$&($\color{red}\bigstar$\tablefootnote{$\color{red}\bigstar$為公差為 $-1$ 的等差數列})&$-\dfrac{2^8}{3}$&($\color{blue}\bigstar$\tablefootnote{$\color{blue}\bigstar$為公差為 $1$ 的等差數列})&$\dfrac{2^7}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^6}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^5}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^4}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^3}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^2}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^1}{3}$&$-\dfrac{2^0}{3}$\\
+    \hline
+    $a_1$&$\cdots$&$a_{257}$&$\cdots$&$a_{385}$&$\cdots$&$a_{449}$&$\cdots$&$a_{481}$&$\cdots$&$a_{497}$&$\cdots$&$a_{505}$&$\cdots$&$a_{509}$&$\cdots$&$a_{511}$&$a_{512}$
+  \end{tabular}
+\end{table}\\
+第四組等號成立條件可以得到的有趣數列是
+\begin{table}[htbp]
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \centering
+  \begin{tabular}{cccccccccccccccccc}
+    $-\dfrac{2^9}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^8}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^7}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^6}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^5}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^4}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^3}{3}$&($\color{blue}\bigstar$)&$\dfrac{2^2}{3}$&($\color{red}\bigstar$)&$-\dfrac{2^1}{3}$&$\dfrac{2^0}{3}$\\
+    \hline
+    $a_1$&$\cdots$&$a_{257}$&$\cdots$&$a_{385}$&$\cdots$&$a_{449}$&$\cdots$&$a_{481}$&$\cdots$&$a_{497}$&$\cdots$&$a_{505}$&$\cdots$&$a_{509}$&$\cdots$&$a_{511}$&$a_{512}$
+  \end{tabular}
+\end{table}\\
+以上四個數列的「倒序」數列也是 512-有趣數列，而且這八個數列兩兩不同。
+
+\fbox{因此，題中所求的 $m_0$ 為 512，對應不同的 $m_0$-有趣數列共有 8 個。}

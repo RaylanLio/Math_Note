@@ -1,0 +1,34 @@
+\INDEX{問題4}不等邊銳角 $\triangle{ABC}$ 的外心為 $O$，
+由 $A$ 點向 $BC$ 的垂線的垂足為 $D$，
+$P$ 點在直線 $AO$ 上且不在 $\triangle{ABC}$ 的外接圓上。
+以線段 $AP$ 為直徑的圓$\Gamma$，與 $\triangle{BCP}$ 的外接圓相交於 $E\neq P$，
+與平行於 $BC$ 且過 $A$ 的直線相交於 $F\neq A$。
+
+\textbf{求證：}$D$、$E$ 和 $F$ 三點共線。
+\begin{figure}[htbp] % p4 示意圖
+  \centering
+  \begin{tikzpicture}[scale=1.1]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    \tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O)
+    \tkzDrawPoints[size=4, fill=black](D,E,F)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E A,F)
+    \tkzDrawSegment[red, thick, densely dashed](D,F)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,F)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}

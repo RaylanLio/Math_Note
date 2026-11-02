@@ -1,0 +1,130 @@
+\INDEX{證明：}\setcounter{equation}{0}
+因為 $A$、$F$、$P$、$E$ 四點共圓，所以直線對（pair） $\left(AF,PE\right)$ 關於直線對 $\left(AP,EF\right)$ 反平行。
+
+因為 $AF // BC$，所以直線對 $\left(BC,PE\right)$ 關於直線對 $\left(AP,EF\right)$ 反平行。
+
+因此原命題按如下方式進行等價變換，變換後的命題稱為命題一：
+\begin{equation}
+  \text{$D$、$E$ 和 $F$ 三點共線}\ \Leftrightarrow\ \measuredangle{\left(DE,EF\right)}=0^{\circ}\ \Leftrightarrow\ \text{直線對 $\left(BC,PE\right)$ 關於直線對 $\left(AP,DE\right)$ 反平行}
+\end{equation}
+此時完全消去了 $F$ 點，整理幾何圖如下：
+
+\begin{figure}[htbp] % 子圖 1
+  \centering
+  \begin{tikzpicture}[scale=0.8]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O,G)
+    \tkzDrawPoints[size=4, fill=black](D,E)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E)
+    \tkzDrawSegment[red, thick, densely dashed](D,E)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}
+設 $AO$ 交 $BC$ 於 $G$，命題一可以按如下方式進行等價變換，變換後的命題稱為命題二：
+\begin{equation}
+  (1)\ \Leftrightarrow\ \text{直線對 $\left(DG,PE\right)$ 關於直線對 $\left(PG,DE\right)$ 反平行}\ \Leftrightarrow\ \text{$D$、$E$、$P$、$G$ 四點共圓}
+\end{equation}
+
+\begin{figure}[htbp] % 子圖 2
+  \centering
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    \tkzInterLL(P,E)(B,C)\tkzGetPoint{M}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O,G,M)
+    \tkzDrawPoints[size=4, fill=black](D,E)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E)
+    \tkzDrawSegments[black, thick, densely dashed](M,B M,E M,A)
+    \tkzDrawSegment[red, thick, densely dashed](D,E)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,M)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}
+設 $PE$ 交 $DG$ 於 $M$，命題二可由圓冪定理等價變換成命題三：
+\begin{equation}
+  (2) \Leftrightarrow\ \overrightarrow{MP}\cdot\overrightarrow{ME}=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+因為 $DG$ 和 $BC$ 為同一直線，所以 $M$ 也是 $PE$ 和 $BC$ 的交點。
+
+注意到，$PE$ 是圓 $\Gamma$ 和 $\triangle{BPC}$ 外接圓的根軸，
+$BC$ 是 $\triangle{BPC}$ 外接圓及 $\triangle{ABC}$ 外接圓的根軸，
+所以由根心定理可知 $M$ 點便是圓 $\Gamma$、$\triangle{BPC}$ 外接圓和$\triangle{ABC}$ 外接圓的根心。
+
+顯然，圓 $\Gamma$ 和 $\triangle{ABC}$ 外接圓相切於 $A$ 點，
+所以圓 $\Gamma$ 和 $\triangle{ABC}$ 外接圓的根軸就是通過 $A$ 點的切線。
+由根心定理可知，$MA$ 便是上述的切線。利用圓冪定理可得 $\overrightarrow{MP}\cdot\overrightarrow{ME}=MA^2$，命題三便可以等價變換成命題四：
+\begin{equation}
+  (3)\ \Leftrightarrow\ MA^2=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+此時完全消去了 $E$ 和 $P$ 點，整理幾何圖如下：
+
+\begin{figure}[htbp] % 子圖 3
+  \centering
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    %\tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    %\tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    \tkzInterLL(P,E)(B,C)\tkzGetPoint{M}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,O,G,M)
+    \tkzDrawPoints[size=4, fill=black](D)
+    \tkzDrawCircle[black](O,B)
+    %\tkzDrawCircle[black](X,A)
+    %\tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D A,G)
+    \tkzDrawSegments[black, thick, densely dashed](M,B M,A)
+    %\tkzDrawSegment[red, thick, densely dashed](D,E)
+    %\tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,M)
+    \tkzLabelPoints[above right](O)
+    \tkzMarkRightAngle[color=blue, size=0.6, line width=2pt](M,A,G)
+  \end{tikzpicture}
+\end{figure}
+因為 $MA$ 是$\triangle{ABC}$ 外接圓的切線，所以 $MA\perp AO$，即 $MA\perp AG$，由此可知 $\triangle{MAG}$ 是直角三角形，斜邊為 $MG$。
+
+因為 $AD\perp BC$，所以 $AD\perp MG$，即 $AD$ 是直角 $\triangle{MAG}$ 斜邊上的高，由射影定理可知
+\begin{equation}
+  MA^2=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+因為命題四成立，且以上每步命題變換均為等價的，所以原命題得證。

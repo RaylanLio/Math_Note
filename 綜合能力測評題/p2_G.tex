@@ -1,0 +1,32 @@
+\INDEX{問題2}設四邊形$ABCD$是梯形，$AB\parallel CD$且$AB<CD$。
+直線$AD$和$BC$交於點$P$。$\triangle{ABC}$上的一點$X\neq C$滿足$PX=PC$，
+$\triangle{ABD}$上的一點$Y\neq D$滿足$PY=PD$直線$AX$與$BY$交於點$Q$。
+
+\textbf{求證：}$PQ\parallel AB$
+\begin{center} % p2 示意圖
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_1,A)
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(B,Y) \tkzGetPoint{Q}
+    \tkzDrawPoints[fill=black](A,B,C,D,P,X,Y,P,Q)
+    \tkzLabelPoints[right](D)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B,C)
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[above](Q)
+    \tkzLabelPoints[right](X)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B C,D P,Q X,Q Y,Q)
+    \tkzDrawSegments[blue, thick](P,X P,C)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+  \end{tikzpicture}
+\end{center}

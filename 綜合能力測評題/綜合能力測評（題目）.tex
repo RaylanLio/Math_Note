@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=2]{SimSun}
+%\setCJKsansfont{SimHei}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{tablefootnote}
+%\setlength{\headheight}{15pt}
+\usetikzlibrary{calc, intersections} % ABX 用於某些符號，若無可刪除
+\usepackage{enumitem}
+\usepackage{tkz-euclide}
+\usepackage{zhnumber}
+\newcommand{\INDEX}[1]{\fbox{\textbf{#1}}\ }
+%\setlength{\headheight}{15pt} % 避免頁首高度警告
+\setlength{\parskip}{1em}
+\geometry{
+  left=2.5cm, 
+  right=2.5cm, 
+  top=2.5cm, 
+  bottom=2.5cm
+}
+
+% 設定頁首頁尾
+\pagestyle{fancy}
+%\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{2pt}
+\lhead{廖汶鋒}
+\chead{綜合能力測評}
+\rhead{澳門培道中學}
+\fancyfoot[C]{\thepage} % Centered footer
+\fancyfoot[L]{\zhtoday} % Left footer
+
+\title{\textbf{綜合能力測評（題目）}\vspace{-0.5em}}
+\author{澳門培道中學　廖汶鋒}
+\date{\zhtoday}
+\linespread{1.3}
+
+% 設定段落首行縮進
+\setlength{\parindent}{0em}
+
+\begin{document}
+%\thispagestyle{fancy}  % 讓首頁也顯示頁首
+\maketitle
+%{
+%\begin{center}
+%  \textbf{\Large{能力測評題題目及答案}}
+%\end{center}
+%
+如遇到困難時，不妨嘗試使用各種 AI 工具來協助解題，或是使用 GeoGebra 來繪製幾何圖形，這些工具都能幫助你更好地理解問題並找到解決方案。
+
+%================ Problem 1 ================%
+\input{p1_G.tex}
+%================ Problem 1 ================%
+\newpage
+%================ Problem 2 ================%
+\input{p2_G.tex}
+%================ Problem 2 ================%
+\newpage
+%================ Problem 3 ================%
+\input{p3_A.tex}
+%================ Problem 3 ================%
+\newpage
+%================ Problem 4 ================%
+\input{p4_G.tex}
+%================ Problem 4 ================%
+\newpage
+%================ Problem 5 ================%
+\input{p5_G.tex}
+%================ Problem 5 ================%
+\end{document}

@@ -1,0 +1,29 @@
+\INDEX{問題 5}$\triangle{ABC}$ 的重心為 $G$，$R$ 和 $S$ 分別在射線 $GB$ 和 $GC$ 上，且滿足
+$$
+  \angle{ABS}=\angle{ACR}=180^{\circ}-\angle{BGC}
+$$
+\textbf{求證：}$\angle{RAS}+\angle{BAC}=\angle{BGC}$。
+\begin{figure}[htbp] % p5 示意圖
+  \centering
+  \begin{tikzpicture}[scale=1.1]
+    \tkzDefPoints{-0.5/7/A, -2/0/B, 3/0/C}
+    \tkzDefTriangleCenter[centroid](A,B,C)\tkzGetPoint{G}
+    \tkzDefLine[orthogonal=through B](A,B)\tkzGetPoint{X1}
+    \tkzDefLine[mediator](G,B)\tkzGetPoints{X2}{X3}
+    \tkzInterLL(B,X1)(X2,X3)\tkzGetPoint{O_B}
+    \tkzInterLC[common=G](G,C)(O_B,G)\tkzGetFirstPoint{S}
+    \tkzDefLine[orthogonal=through C](A,C)\tkzGetPoint{Y1}
+    \tkzDefLine[mediator](G,C)\tkzGetPoints{Y2}{Y3}
+    \tkzInterLL(C,Y1)(Y2,Y3)\tkzGetPoint{O_C}
+    \tkzInterLC[common=G](G,B)(O_C,G)\tkzGetFirstPoint{R}
+    \tkzDrawPoints[black](A,B,C,G,R,S)
+    \tkzDrawSegments[black, thick](A,B A,C B,C G,R G,S B,S C,R)
+    %\tkzDrawCircles[black, thick](O_B,G O_C,G)
+    \tkzLabelPoints[above](A,G)
+    \tkzLabelPoints[left](B,R)
+    \tkzLabelPoints[right](C,S)
+    \tkzMarkAngle[size=0.4, color=blue, line width=1.5pt](S,B,A)
+    \tkzMarkAngle[size=0.4, color=blue, line width=1.5pt](A,C,R)
+    \tkzMarkAngle[size=0.4, color=red, line width=1.5pt](B,G,C)
+  \end{tikzpicture}
+\end{figure}

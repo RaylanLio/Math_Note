@@ -1,0 +1,436 @@
+\INDEX{證明：}\setcounter{equation}{0}
+要證明兩直線平行，方法不外乎以下幾種：
+\begin{enumerate}[label=(\roman*)]
+  \item 找到相等的同位角、內錯角
+  \item 找到互補的同旁內角
+  \item 向量平行
+  \item 找到兩點（兩個點同一在直線上或分別在兩條直線都可）到另一條直線的距離相等
+\end{enumerate}
+如果要用第(i)種或第(ii)種方法，
+那麼至少要研究 $\angle{PQA}$、$\angle{PQB}$、
+$\angle{QPA}$和$\angle{QPB}$ 之間的其中一個角。
+因為這些角都直接涉及到直線$PQ$，所以很難去轉換這些角。
+
+要用第(iii)種方法，其困難在於寫出交點向量。
+非常不幸地，本題中含有大量交點，而且是圓與圓的交點，所以此方法亦不適用。
+
+要用第(iv)種方法，
+可以嘗試以「$P$到$AB$的距離$d_{P,AB}$等於$Q$到$AB$的距離$d_{Q,AB}$」作為切入點。
+同時，因為$AB\parallel CD$，所以若原命題得證，則必定有「$P$到$CD$的距離$d_{P,CD}$等於$Q$到$AB$的距離$d_{Q,CD}$」成立。
+
+一般如果題目已知存在一對平行線，則最好把要論證的「數值」由「角度、長度、面積」變成「比值」，因為這樣可以配合相似三角形得到更多幾何關係。
+\begin{center} % 子圖 1
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzInterLL(A,X)(B,Y) \tkzGetPoint{Q}
+    \tkzDrawPoints[fill=black](A,B,C,D,P,Q)
+    \tkzLabelPoints[right](D)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B,C)
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[above](Q)
+    \tkzDrawSegments[black, thick](A,B C,D P,Q)
+    \tkzDefPointBy[projection = onto B--A](P) \tkzGetPoint{P_1}
+    \tkzDefPointBy[projection = onto B--A](Q) \tkzGetPoint{Q_1}
+    \tkzDrawSegment[color=red, dashed](P,P_1)
+    \tkzDrawSegment[color=red, dashed](Q,Q_1)
+    \tkzMarkRightAngle[size=0.2](P,P_1,A)
+    \tkzMarkRightAngle[size=0.2](Q,Q_1,B)\coordinate (d_ABCD_1) at ($(B)!0.5!(A)$);
+    \tkzDefPointBy[projection = onto C--D](d_ABCD_1) \tkzGetPoint{d_ABCD_2}
+    \tkzDrawSegment[color=blue, dashed, thick](d_ABCD_1,d_ABCD_2)
+    \tkzDrawSegment[color=red, dashed, thick](P,P_1)
+    \tkzDrawSegment[color=red, dashed, thick](Q,Q_1)
+    \node[blue, left] at ($(d_ABCD_1)!0.5!(d_ABCD_2)$) {$d_{AB,CD}$};
+    \node[red, left] at ($(P)!0.5!(P_1)$) {$d_{P,AB}$};
+    \node[red, right] at ($(Q)!0.5!(Q_1)$) {$d_{Q,AB}$};
+  \end{tikzpicture}
+\end{center}
+
+提取出原幾何圖的子圖。顯然，當原命題成立時，「$d_{P,AB}:d_{P,CD}=d_{Q,AB}:d_{Q,CD}$」也必定成立。
+
+注意，題中的一對平行線$AB$和$CD$之間的距離$d_{AB,CD}$是一個「定值」。經過以下的等價變換
+\begin{align*}
+  d_{P,AB}:d_{P,CD}=d_{Q,AB}:d_{Q,CD}\Leftrightarrow\quad& \frac{d_{P,CD}}{d_{P,AB}}=\frac{d_{Q,CD}}{d_{Q,AB}}\\ 
+  \Leftrightarrow\quad& \frac{d_{P,CD}}{d_{P,AB}}-1=\frac{d_{Q,CD}}{d_{Q,AB}}-1\\ 
+  \Leftrightarrow\quad& \frac{d_{AB,CD}}{d_{P,AB}}=\frac{d_{AB,CD}}{d_{Q,AB}}\\ 
+  \Leftrightarrow\quad& d_{P,AB}=d_{Q,AB}\Rightarrow\quad PQ\parallel AB
+\end{align*}
+
+所以原命題等價於以下的命題一：
+\begin{equation}
+  PQ\parallel AB\Leftrightarrow\frac{d_{P,AB}}{d_{P,CD}}=\frac{d_{Q,AB}}{d_{Q,CD}}\label{eq:p2_s1}
+\end{equation}
+
+\begin{center} % 子圖 2
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}\tkzDrawPoints[fill=black](A,B,C,D,P)
+    \tkzLabelPoints[right](D)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B,C)
+    \tkzLabelPoints[above](P)
+    \tkzDrawSegments[black, thick](A,B C,D)
+    \tkzDrawSegments[blue, thick](P,C)
+    \tkzDrawSegments[red, thick](P,D)
+    \tkzDefPointBy[projection = onto B--A](P) \tkzGetPoint{P_1}
+    \tkzDrawSegment[color=red, dashed](P,P_1)
+    \tkzMarkRightAngle[size=0.2](P,P_1,A)
+    \coordinate (d_ABCD_1) at ($(B)!0.5!(A)$);
+    \tkzDefPointBy[projection = onto C--D](d_ABCD_1) \tkzGetPoint{d_ABCD_2}
+    \tkzDrawSegment[color=black, dashed, thick](d_ABCD_1,d_ABCD_2)
+    \tkzDrawSegment[color=black, dashed, thick](P,P_1)
+    \node[black, right] at ($(d_ABCD_1)!0.5!(d_ABCD_2)$) {$d_{AB,CD}$};
+    \node[black, right] at ($(P)!0.8!(P_1)$) {$d_{P,AB}$};
+  \end{tikzpicture}
+\end{center}
+
+第一步，研究 $d_{P,AB}:d_{P,CD}$：
+
+因為$AB\parallel CD$，所以$\triangle{PBA}$和$\triangle{PCD}$是位似三角形，即有
+\begin{equation}
+  \frac{d_{P,AB}}{d_{P,CD}}=\frac{PA}{PD}=\frac{PB}{PC}=\frac{BA}{CD}\label{eq:p2_s1-1}
+\end{equation}
+(\ref{eq:p2_s1-1})式中我們選擇$BA/CD$的值，因為此表達式上只存在$A,B,C,D$四點，是「最簡形式」。所以命題一等價於以下的命題二：
+\begin{equation}
+  \frac{d_{Q,AB}}{d_{Q,CD}}=\frac{BA}{CD}\label{eq:p2_s2}
+\end{equation}
+留意到(\ref{eq:p2_s2})式中包含 $A,B,C,D,Q$ 五點。在原幾何圖中，已知線段已經連成了$\triangle{QAB}$，而命題二又與$CD$有關，所以我們需要令射線$QB$和$QA$與直線$CD$產生聯繫才可。
+
+第二步，研究 $d_{Q,AB}:d_{Q,CD}$：
+\begin{center} % 子圖 3
+  \begin{tikzpicture}[scale=0.6]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzInterLL(A,X)(B,Y) \tkzGetPoint{Q}
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzDrawPoints[fill=black](A,B,C,D,E,F,Q,X,Y)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B)
+    \tkzLabelPoints[below](E,F,C,D)
+    \tkzLabelPoints[above](Q)
+    \tkzLabelPoints[right](X)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B F,D Q,E Q,Y)
+    \tkzDefPointBy[projection = onto B--A](Q) \tkzGetPoint{Q_1}
+    \tkzDrawSegment[color=red, dashed](Q,Q_1)
+    \tkzMarkRightAngle[size=0.2](Q,Q_1,B)
+    \coordinate (d_ABCD_1) at ($(B)!0.5!(A)$);
+    \tkzDefPointBy[projection = onto C--D](d_ABCD_1) \tkzGetPoint{d_ABCD_2}
+    \tkzDrawSegment[color=black, dashed, thick](d_ABCD_1,d_ABCD_2)
+    \tkzDrawSegment[color=black, dashed, thick](Q,Q_1)
+    \node[black, left] at ($(d_ABCD_1)!0.5!(d_ABCD_2)$) {$d_{AB,CD}$};
+    \node[black] at ($(Q)!0.6!(Q_1)$) {$d_{Q,AB}$};
+  \end{tikzpicture}
+\end{center}
+作直線$AX$與直線$CD$的交點為$E$，直線$BY$與直線$CD$的交點為$F$。\textcolor{gray}{（溫馨提示：雖然直線$AX$和直線$QA$是同一條，但是為了可以逐步消去$Q$點，在解答過程中亦盡量減少出現不出現的$Q$點；直線$BY$同理）}
+因為$AB\parallel CD$，即$AB\parallel EF$，所以$\triangle{QBA}$和$\triangle{QFE}$也是位似三角形，即有
+\begin{equation}
+  \frac{d_{Q,AB}}{d_{Q,CD}}=\frac{QA}{QE}=\frac{QB}{QF}=\frac{BA}{FE}\label{eq:p2_s2-1}
+\end{equation}
+與第一步的情況一樣，我們選擇$BA/FE$的值，所以命題二等價於以下的命題三：
+\begin{equation}
+  \frac{BA}{FE}=\frac{BA}{CD}\Leftrightarrow FE=CD\Leftrightarrow FC=ED\label{eq:p2_s3}
+\end{equation}
+至此，我們成功消去$Q$點，整理當前的幾何圖：
+\begin{center} % 子圖 4
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_1,A)
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzDrawPoints[fill=black](A,B,C,D,E,F,X,Y)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B)
+    \tkzLabelPoints[below](E,F,C)
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[right](X,D)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B F,D A,E B,Y)
+    \tkzDrawSegments[blue, thick](P,X P,C)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+  \end{tikzpicture}
+\end{center}
+
+第三步，歸類思維：
+
+(\ref{eq:p2_s3})式中的線段$FC$和$ED$沒有公共端點，無法簡單地形成比值關係，所以需要把目光投向「其他上層點」。
+
+注意到，$E$點是直線$AX$與$CD$相交而得，撇除初始點$A,C,D$後，會發現$E$點是受$X$點影響的。
+$X$點是由$C$點經過一些對稱變換而生成，且在$\triangle{ABC}$上，所以在腦海中可以生成一個「C類」，C類包含$\triangle{ABC}$、$\triangle{ABC}$的外接圓、$X$、$E$。
+
+同理，另一個就是「D類」，D類包含$\triangle{ABD}$、$\triangle{ABD}$的外接圓、$Y$、$F$。
+
+現在命題三中的兩線段$FC$和$ED$，明顯使兩個種類產生了糾纏，使得解題難度增高。我們需要做的，就是把兩個種類的糾纏部分拆開。
+\begin{center} % 子圖 5
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_1,A)
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzInterLC(C,D)(O_1,A) \tkzGetPoints{C_tmp}{G}
+    \tkzInterLC(C,D)(O_2,A) \tkzGetPoints{D_tmp}{H}
+    \tkzDrawPoints[fill=black](A,B,C,D,E,F,X,G,H,Y)
+    \tkzLabelPoints[below](C)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B,H)
+    \tkzLabelPoints[below](E,F,G)
+    \tkzLabelPoints[right](X,D)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B H,D A,E B,Y)
+    \tkzDrawSegments[blue, thick](B,C)
+    \tkzDrawSegments[dashed, blue, thick](A,G)
+    \tkzDrawSegments[dashed, red, thick](B,H)
+    \tkzDrawSegments[red, thick](A,D)
+    \tkzDrawLine[purple, thick, dashed, add=1.5 and 2.5](O_1,O_2)
+  \end{tikzpicture}
+\end{center}
+
+對於$ED$，我們希望可以把其轉化成C類和其餘「公共項」的表達式。
+
+試着觀察$CD$與$\triangle{ABC}$的外接圓的另一個交點，記為$G$。因為$AB\parallel CG$，根據垂徑定理可以知道，$\triangle{ABC}$外接圓上的弦$AB$和弦$CG$被同一條直徑垂直平分。
+
+同理，$\triangle{ABD}$外接圓上的弦$AB$和弦$HD$也被同一條直徑垂直平分。
+
+由此可知，線段$BA$、$CG$和$HD$被同一條直線垂直平分，所以可以得出
+\begin{equation}
+  HC=GD\label{eq:p2_s3-1}
+\end{equation}
+所以命題三等價於以下的命題四：
+\begin{equation}
+  FC=ED\Leftrightarrow HC-FC=GD-ED\Leftrightarrow HF=GE\label{eq:p2_s4}
+\end{equation}
+顯然，$G$點能由$C$點經過一條公共直線對稱而得，所以C類也包含$G$點；
+
+同理，$H$點能由$D$點經過一條公共直線對稱而得，所以D類也包含$H$點。
+
+至此，我們完成了把兩個種類完全拆開的目標。整理當前幾何圖
+\begin{center} % 子圖 6
+  \begin{tikzpicture}[scale=0.8]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_1,A)
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzInterLC(C,D)(O_1,A) \tkzGetPoints{C_tmp}{G}
+    \tkzInterLC(C,D)(O_2,A) \tkzGetPoints{D_tmp}{H}
+    \tkzDrawPoints[fill=black](A,B,C,D,E,F,X,G,H,Y,P)
+    \tkzLabelPoints[below](C)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](B,H)
+    \tkzLabelPoints[below](E,F,G)
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[right](X,D)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B H,D A,E B,Y)
+    \tkzDrawSegments[blue, thick](P,C P,X)
+    \tkzDrawSegments[dashed, blue, thick](A,G)
+    \tkzDrawSegments[dashed, red, thick](B,H)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+  \end{tikzpicture}
+\end{center}
+第四步，「長度」轉換成「面積比值」：
+
+留意到$HC=GD$是已知事實，所以要證明命題四，等價於證明$HF$、$GE$分別在$HC$、$GD$內所佔的比值，即等價於以下的命題五：
+\begin{equation}
+  HF=GE\Leftrightarrow \frac{HC}{HF}=\frac{GD}{GE}\Leftrightarrow\frac{HC}{HF}-1=\frac{GD}{GE}-1\Leftrightarrow\frac{FC}{HF}=\frac{ED}{GE}\label{eq:p2_s5}
+\end{equation}
+現在觀察$FC/HF$，常用的比值轉換手法就是「長度-面積」，即
+\begin{equation}
+  \frac{FC}{HF}=\frac{\left[\triangle{CBY}\right]}{\left[\triangle{HBY}\right]}\label{eq:p2_s5-1}
+\end{equation}
+\begin{center} % 子圖 7
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzInterLC(C,D)(O_1,A) \tkzGetPoints{C_tmp}{G}
+    \tkzInterLC(C,D)(O_2,A) \tkzGetPoints{D_tmp}{H}
+    \tkzDrawPoints[fill=black](A,B,D,F,H,Y,P)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](H)
+    \tkzLabelPoints[below](F)
+    \tkzLabelPoints[above](P,B)
+    \tkzLabelPoints[right](D)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B H,D B,Y)
+    \tkzDrawSegments[dashed, red, thick](B,H)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+    \tkzDrawLine[purple, thick, dashed, add=1.5 and 2.5](O_1,O_2)
+  \end{tikzpicture}
+\end{center}
+前面的部分有提及「線段$BA$和$HD$被同一條直線垂直平分」，所以有
+\begin{equation}
+  \begin{aligned}
+    \text{（中垂線）軸對稱：}&B\rightarrow A\\
+    &H\rightarrow D
+  \end{aligned}
+  \quad\Rightarrow\quad BH=AD\label{eq:p2_s5-2}
+\end{equation}
+\begin{center} % 子圖 8
+  \begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzInterLC(C,D)(O_1,A) \tkzGetPoints{C_tmp}{G}
+    \tkzInterLC(C,D)(O_2,A) \tkzGetPoints{D_tmp}{H}
+    \tkzInterLC(P,Y)(O_2,A) \tkzGetPoints{J}{Y_tmp}
+    \tkzDrawPoints[fill=black](A,B,D,F,H,Y,P,O_2,J)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[left](H)
+    \tkzLabelPoints[below](F)
+    \tkzLabelPoints[above](P,B,J)
+    \tkzLabelPoints[right](D,O_2)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B H,D B,Y)
+    \tkzDrawSegments[dashed, red, thick](B,H)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+    \tkzDrawLine[purple, thick, dashed, add=0 and 0.3](P,O_2)
+  \end{tikzpicture}
+\end{center}  
+熟悉尺規作圖的讀者亦必然發現，$Y$點是$D$點關於「$P$點與$\triangle{ABD}$外心的連線」對稱的。作$\triangle{ABD}$外心為$O_2$，有
+\begin{align*}
+  \text{（$PO_2$）軸對稱：}&A\rightarrow ??\\
+  &D\rightarrow Y
+\end{align*}
+顯然「??」是$PY$與$\triangle{ABD}$外接圓且異於$Y$的另一個交點，記為$J$。由兩割線定理可知
+\begin{equation}
+  PA=PJ,AD=JY\label{eq:p2_s5-2A}
+\end{equation}
+現時有結論如下：
+\begin{equation}
+  BH=AD=JY\label{eq:p2_s5-3}
+\end{equation}
+由圓周角定理可知
+\begin{equation}
+  \text{劣弧}HB=\text{劣弧}AD=\text{劣弧}YJ\quad\Rightarrow\quad\text{劣弧}YH=\text{劣弧}BJ\quad\Rightarrow\quad YH=BJ\label{eq:p2_s5-4}
+\end{equation}
+由(\ref{eq:p2_s5-3})和(\ref{eq:p2_s5-4})可知，$\triangle{HBY}\cong\triangle{JYB}$。所以(\ref{eq:p2_s5-1})式等價於
+\begin{equation}
+  \frac{FC}{HF}=\frac{\left[\triangle{CBY}\right]}{\left[\triangle{JYB}\right]}\label{eq:p2_s5-5}
+\end{equation}
+同理，作$PX$與$\triangle{ABC}$外接圓且異於$X$的另一個交點，記為$I$，亦有
+\begin{equation}
+  \frac{ED}{GE}=\frac{\left[\triangle{DAX}\right]}{\left[\triangle{IXA}\right]}\label{eq:p2_s5-6}
+\end{equation}
+所以要證明命題五等價於以下的命題六：
+\begin{equation}
+  \frac{\left[\triangle{CBY}\right]}{\left[\triangle{JYB}\right]}=\frac{\left[\triangle{DAX}\right]}{\left[\triangle{IXA}\right]}\label{eq:p2_s6}
+\end{equation}
+整理當前幾何圖
+\begin{center} % 子圖 9
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoint(2,3){A}
+    \tkzDefPoint(-2,3){B}
+    \tkzDefPoint(-3,0){C}
+    \tkzDefPoint(5,0){D}
+    \tkzInterLL(A,D)(B,C) \tkzGetPoint{P}
+    \tkzCircumCenter(A,B,C) \tkzGetPoint{O_1}
+    \tkzCircumCenter(A,B,D) \tkzGetPoint{O_2}
+    \tkzInterCC(O_1,C)(P,C) \tkzGetPoints{C_tmp}{X}
+    \tkzInterCC(O_2,D)(P,D) \tkzGetPoints{Y}{D_tmp}
+    \tkzDrawCircle[black,thick](O_1,A)
+    \tkzDrawCircle[black,thick](O_2,A)
+    \tkzInterLL(A,X)(C,D) \tkzGetPoint{E}
+    \tkzInterLL(B,Y)(C,D) \tkzGetPoint{F}
+    \tkzInterLC(C,D)(O_1,A) \tkzGetPoints{C_tmp}{G}
+    \tkzInterLC(C,D)(O_2,A) \tkzGetPoints{D_tmp}{H}
+    \tkzInterLC(P,Y)(O_2,A) \tkzGetPoints{J}{Y_tmp}
+    \tkzInterLC(P,X)(O_1,A) \tkzGetPoints{X_tmp}{I}
+    \tkzDrawPoints[fill=black](A,B,C,D,X,Y,P,I,J)
+    \tkzLabelPoints[below](C)
+    \tkzLabelPoints[above right](A)
+    \tkzLabelPoints[above left](I)
+    \tkzLabelPoints[left](B,J)
+    \tkzLabelPoints[above](P)
+    \tkzLabelPoints[right](X,D)
+    \tkzLabelPoints[left](Y)
+    \tkzDrawSegments[black, thick](A,B X,D A,X B,Y C,D)
+    \tkzDrawSegments[blue, thick](P,C P,X)
+    \tkzDrawSegments[dashed, black, thick](B,J I,A C,Y)
+    \tkzDrawSegments[red, thick](P,Y P,D)
+  \end{tikzpicture}
+\end{center}
+第六步，「面積比值」轉化成「長度比值」：
+\begin{align}
+  \frac{\left[\triangle{CBY}\right]}{\left[\triangle{JYB}\right]}
+  &=\frac{\left[\triangle{CBY}\right]/\left[\triangle{PBY}\right]}{\left[\triangle{JYB}\right]/\left[\triangle{PYB}\right]}\notag\\
+  &=\frac{CB/BP}{JY/PY}\notag\\
+  &=\frac{CB/BP}{AD/PD}\label{eq:p2_s6-1}
+\end{align}
+同理可得
+\begin{equation}
+  \frac{\left[\triangle{DAX}\right]}{\left[\triangle{IXA}\right]}=\frac{DA/AP}{BC/PC}\label{eq:p2_s6-2}
+\end{equation}
+由「平行線分線段成比例」可知
+\begin{align}
+  CB/BP&=DA/AP\\
+  AD/PD&=BC/PC
+\end{align}
+由此可得
+\begin{equation}
+  \frac{\left[\triangle{CBY}\right]}{\left[\triangle{JYB}\right]}=\frac{CB/BP}{AD/PD}=\frac{DA/AP}{BC/PC}=\frac{\left[\triangle{DAX}\right]}{\left[\triangle{IXA}\right]}\label{eq:p2_s6-3}
+\end{equation}
+命題六成立，即原命題得證。
