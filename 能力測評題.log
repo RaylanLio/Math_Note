@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  31 OCT 2026 20:39
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.13)  2 NOV 2026 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,7 +23,7 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-) (d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.sty (d:/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty (d:/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (d:/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2026-01-19 L3 programming layer (loader) 
  (d:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
@@ -31,19 +31,41 @@ File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
 \g__pdfannot_backend_int=\count280
 \g__pdfannot_backend_link_int=\count281
 ))
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
+Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
+ (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count282
+\l__fontspec_language_int=\count283
+\l__fontspec_strnum_int=\count284
+\l__fontspec_tmp_int=\count285
+\l__fontspec_tmpa_int=\count286
+\l__fontspec_tmpb_int=\count287
+\l__fontspec_tmpc_int=\count288
+\l__fontspec_em_int=\count289
+\l__fontspec_emdef_int=\count290
+\l__fontspec_strong_int=\count291
+\l__fontspec_strongdef_int=\count292
+\l__fontspec_tmpa_dim=\dimen149
+\l__fontspec_tmpb_dim=\dimen150
+\l__fontspec_tmpc_dim=\dimen151
+ (d:/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
  (d:/texlive/2026/texmf-dist/tex/latex/ctex/ctexhook.sty
 Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
 ) (d:/texlive/2026/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
 )
-\l__xeCJK_tmp_int=\count282
+\l__xeCJK_tmp_int=\count293
 \l__xeCJK_tmp_box=\box53
-\l__xeCJK_tmp_dim=\dimen149
+\l__xeCJK_tmp_dim=\dimen152
 \l__xeCJK_tmp_skip=\skip51
-\g__xeCJK_space_factor_int=\count283
-\l__xeCJK_begin_int=\count284
-\l__xeCJK_end_int=\count285
+\g__xeCJK_space_factor_int=\count294
+\l__xeCJK_begin_int=\count295
+\l__xeCJK_end_int=\count296
 \c__xeCJK_CJK_class_int=\XeTeXcharclass1
 \c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
 \c__xeCJK_FullRight_class_int=\XeTeXcharclass3
@@ -53,73 +75,51 @@ Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
 \c__xeCJK_CM_class_int=\XeTeXcharclass7
 \c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
 \l__xeCJK_last_skip=\skip52
-\c__xeCJK_none_node=\count286
-\g__xeCJK_node_int=\count287
-\c__xeCJK_CJK_node_dim=\dimen150
-\c__xeCJK_CJK-space_node_dim=\dimen151
-\c__xeCJK_default_node_dim=\dimen152
-\c__xeCJK_CJK-widow_node_dim=\dimen153
-\c__xeCJK_normalspace_node_dim=\dimen154
+\c__xeCJK_none_node=\count297
+\g__xeCJK_node_int=\count298
+\c__xeCJK_CJK_node_dim=\dimen153
+\c__xeCJK_CJK-space_node_dim=\dimen154
+\c__xeCJK_default_node_dim=\dimen155
+\c__xeCJK_CJK-widow_node_dim=\dimen156
+\c__xeCJK_normalspace_node_dim=\dimen157
 \c__xeCJK_default-space_node_skip=\skip53
 \l__xeCJK_ccglue_skip=\skip54
 \l__xeCJK_ecglue_skip=\skip55
 \l__xeCJK_punct_kern_skip=\skip56
 \l__xeCJK_indent_box=\box54
-\l__xeCJK_last_penalty_int=\count288
-\l__xeCJK_last_bound_dim=\dimen155
-\l__xeCJK_last_kern_dim=\dimen156
-\l__xeCJK_widow_penalty_int=\count289
+\l__xeCJK_last_penalty_int=\count299
+\l__xeCJK_last_bound_dim=\dimen158
+\l__xeCJK_last_kern_dim=\dimen159
+\l__xeCJK_widow_penalty_int=\count300
 
 LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
 (template)           argument(s) on line 2396.
 
-\l__xeCJK_fixed_punct_width_dim=\dimen157
-\l__xeCJK_mixed_punct_width_dim=\dimen158
-\l__xeCJK_middle_punct_width_dim=\dimen159
-\l__xeCJK_fixed_margin_width_dim=\dimen160
-\l__xeCJK_mixed_margin_width_dim=\dimen161
-\l__xeCJK_middle_margin_width_dim=\dimen162
-\l__xeCJK_bound_punct_width_dim=\dimen163
-\l__xeCJK_bound_margin_width_dim=\dimen164
-\l__xeCJK_margin_minimum_dim=\dimen165
-\l__xeCJK_kerning_total_width_dim=\dimen166
-\l__xeCJK_same_align_margin_dim=\dimen167
-\l__xeCJK_different_align_margin_dim=\dimen168
-\l__xeCJK_kerning_margin_width_dim=\dimen169
-\l__xeCJK_kerning_margin_minimum_dim=\dimen170
-\l__xeCJK_bound_dim=\dimen171
-\l__xeCJK_reverse_bound_dim=\dimen172
-\l__xeCJK_margin_dim=\dimen173
-\l__xeCJK_minimum_bound_dim=\dimen174
-\l__xeCJK_kerning_margin_dim=\dimen175
-\g__xeCJK_family_int=\count290
-\l__xeCJK_fam_int=\count291
-\g__xeCJK_fam_allocation_int=\count292
-\l__xeCJK_verb_case_int=\count293
+\l__xeCJK_fixed_punct_width_dim=\dimen160
+\l__xeCJK_mixed_punct_width_dim=\dimen161
+\l__xeCJK_middle_punct_width_dim=\dimen162
+\l__xeCJK_fixed_margin_width_dim=\dimen163
+\l__xeCJK_mixed_margin_width_dim=\dimen164
+\l__xeCJK_middle_margin_width_dim=\dimen165
+\l__xeCJK_bound_punct_width_dim=\dimen166
+\l__xeCJK_bound_margin_width_dim=\dimen167
+\l__xeCJK_margin_minimum_dim=\dimen168
+\l__xeCJK_kerning_total_width_dim=\dimen169
+\l__xeCJK_same_align_margin_dim=\dimen170
+\l__xeCJK_different_align_margin_dim=\dimen171
+\l__xeCJK_kerning_margin_width_dim=\dimen172
+\l__xeCJK_kerning_margin_minimum_dim=\dimen173
+\l__xeCJK_bound_dim=\dimen174
+\l__xeCJK_reverse_bound_dim=\dimen175
+\l__xeCJK_margin_dim=\dimen176
+\l__xeCJK_minimum_bound_dim=\dimen177
+\l__xeCJK_kerning_margin_dim=\dimen178
+\g__xeCJK_family_int=\count301
+\l__xeCJK_fam_int=\count302
+\g__xeCJK_fam_allocation_int=\count303
+\l__xeCJK_verb_case_int=\count304
 \l__xeCJK_verb_exspace_skip=\skip57
- (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty (d:/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2025-10-09 L3 Experimental document command parser
-)
-Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
- (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count294
-\l__fontspec_language_int=\count295
-\l__fontspec_strnum_int=\count296
-\l__fontspec_tmp_int=\count297
-\l__fontspec_tmpa_int=\count298
-\l__fontspec_tmpb_int=\count299
-\l__fontspec_tmpc_int=\count300
-\l__fontspec_em_int=\count301
-\l__fontspec_emdef_int=\count302
-\l__fontspec_strong_int=\count303
-\l__fontspec_strongdef_int=\count304
-\l__fontspec_tmpa_dim=\dimen176
-\l__fontspec_tmpb_dim=\dimen177
-\l__fontspec_tmpc_dim=\dimen178
- (d:/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (d:/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+ (d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
 
@@ -785,19 +785,19 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (./能力測評題.aux)
+] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] (./能力測評題.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 24913 strings out of 470148
- 594947 string characters out of 5478126
- 1046857 words of memory out of 5000000
- 52982 multiletter control sequences out of 15000+600000
+ 25125 strings out of 470148
+ 599964 string characters out of 5478126
+ 1046897 words of memory out of 5000000
+ 53194 multiletter control sequences out of 15000+600000
  634759 words of font info for 85 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 102i,21n,107p,1192b,894s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,21n,130p,1192b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 能力測評題.pdf (19 pages).
+Output written on 能力測評題.pdf (24 pages).

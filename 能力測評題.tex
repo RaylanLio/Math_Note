@@ -1,5 +1,5 @@
 \documentclass{article}
-%\usepackage{fontspec}
+\usepackage{fontspec}
 \usepackage{xeCJK}
 \setCJKmainfont[AutoFakeBold=2]{SimSun}
 %\setCJKsansfont{SimHei}
@@ -1051,6 +1051,7 @@ $X$點是由$C$點經過一些對稱變換而生成，且在$\triangle{ABC}$上�
 記 $m_0$ 為使得 $m$-有趣數列存在的最小正整數 $m$。求 $m_0$ 的值，並確定不同的 $m_0$-有趣數列的個數。
 %================ Problem 3 ================%
 \newpage
+%================ Solution 3 ================%
 \INDEX{證明：}\setcounter{equation}{0}
 首先，留意到 $m_0$ 具有「最小性」，所以我們要知道，\textbf{極端性原理}將會是解題的關鍵方式。
 \begin{quotation}
@@ -1115,12 +1116,12 @@ $$
 
 \textbf{第四步：}我們可以先做計算一次 $m_0$ ：
 
-利用第一步的結論可知
+利用第一步的結論、第二步的推論和等比數列通項公式可知
 \begin{align}
   m_0&=1+m_0-1\notag\\
-  &=1+i_{10}-i_1\notag\\
+  &=1+i_{10}-i_1\tag{第一步的結論}\\
   &=1+\sum_{k=1}^{9}{\left(i_{k+1}-i_k\right)}\notag\\
-  &=1+\sum_{k=1}^{9}{\left|a_{i_{k+1}}-a_{i_k}\right|}\notag\\
+  &=1+\sum_{k=1}^{9}{\left|a_{i_{k+1}}-a_{i_k}\right|}\tag{第二步的推論}\\
   &=1+\left|q-1\right|\sum_{k=1}^{9}{|a_{i_k}|}\notag\\
   &=1+\left|a_1\left(q-1\right)\right|\sum_{k=1}^{9}{|q|^{k-1}}\label{eq:p3_s6}
 \end{align}
@@ -1196,4 +1197,241 @@ $$
 以上四個數列的「倒序」數列也是 512-有趣數列，而且這八個數列兩兩不同。
 
 \fbox{因此，題中所求的 $m_0$ 為 512，對應不同的 $m_0$-有趣數列共有 8 個。}
+%================ Solution 3 ================%
+\newpage
+%================ Problem 4 ================%
+\INDEX{問題4}不等邊銳角 $\triangle{ABC}$ 的外心為 $O$，
+由 $A$ 點向 $BC$ 的垂線的垂足為 $D$，
+$P$ 點在直線 $AO$ 上且不在 $\triangle{ABC}$ 的外接圓上。
+以線段 $AP$ 為直徑的圓$\Gamma$，與 $\triangle{BCP}$ 的外接圓相交於 $E\neq P$，
+與平行於 $BC$ 且過 $A$ 的直線相交於 $F\neq A$。
+
+\textbf{求證：}$D$、$E$ 和 $F$ 三點共線。
+\begin{figure}[htbp] % p4 示意圖
+  \centering
+  \begin{tikzpicture}[scale=1.1]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    \tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O)
+    \tkzDrawPoints[size=4, fill=black](D,E,F)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E A,F)
+    \tkzDrawSegment[red, thick, densely dashed](D,F)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,F)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}
+%================ Problem 4 ================%
+\newpage
+%================ Solution 4 ================%
+\INDEX{證明：}\setcounter{equation}{0}
+因為 $A$、$F$、$P$、$E$ 四點共圓，所以直線對（pair） $\left(AF,PE\right)$ 關於直線對 $\left(AP,EF\right)$ 反平行。
+
+因為 $AF // BC$，所以直線對 $\left(BC,PE\right)$ 關於直線對 $\left(AP,EF\right)$ 反平行。
+
+因此原命題按如下方式進行等價變換，變換後的命題稱為命題一：
+\begin{equation}
+  \text{$D$、$E$ 和 $F$ 三點共線}\ \Leftrightarrow\ \measuredangle{\left(DE,EF\right)}=0^{\circ}\ \Leftrightarrow\ \text{直線對 $\left(BC,PE\right)$ 關於直線對 $\left(AP,DE\right)$ 反平行}
+\end{equation}
+此時完全消去了 $F$ 點，整理幾何圖如下：
+
+\begin{figure}[htbp] % 子圖 1
+  \centering
+  \begin{tikzpicture}[scale=0.8]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O,G)
+    \tkzDrawPoints[size=4, fill=black](D,E)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E)
+    \tkzDrawSegment[red, thick, densely dashed](D,E)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}
+設 $AO$ 交 $BC$ 於 $G$，命題一可以按如下方式進行等價變換，變換後的命題稱為命題二：
+\begin{equation}
+  (1)\ \Leftrightarrow\ \text{直線對 $\left(DG,PE\right)$ 關於直線對 $\left(PG,DE\right)$ 反平行}\ \Leftrightarrow\ \text{$D$、$E$、$P$、$G$ 四點共圓}
+\end{equation}
+
+\begin{figure}[htbp] % 子圖 2
+  \centering
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    \tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    \tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    \tkzInterLL(P,E)(B,C)\tkzGetPoint{M}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,P,O,G,M)
+    \tkzDrawPoints[size=4, fill=black](D,E)
+    \tkzDrawCircle[black](O,B)
+    \tkzDrawCircle[black](X,A)
+    \tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D P,E)
+    \tkzDrawSegments[black, thick, densely dashed](M,B M,E M,A)
+    \tkzDrawSegment[red, thick, densely dashed](D,E)
+    \tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A,E,P)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,M)
+    \tkzLabelPoints[above right](O)
+  \end{tikzpicture}
+\end{figure}
+設 $PE$ 交 $DG$ 於 $M$，命題二可由圓冪定理等價變換成命題三：
+\begin{equation}
+  (2) \Leftrightarrow\ \overrightarrow{MP}\cdot\overrightarrow{ME}=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+因為 $DG$ 和 $BC$ 為同一直線，所以 $M$ 也是 $PE$ 和 $BC$ 的交點。
+
+注意到，$PE$ 是圓 $\Gamma$ 和 $\triangle{BPC}$ 外接圓的根軸，
+$BC$ 是 $\triangle{BPC}$ 外接圓及 $\triangle{ABC}$ 外接圓的根軸，
+所以由根心定理可知 $M$ 點便是圓 $\Gamma$、$\triangle{BPC}$ 外接圓和$\triangle{ABC}$ 外接圓的根心。
+
+顯然，圓 $\Gamma$ 和 $\triangle{ABC}$ 外接圓相切於 $A$ 點，
+所以圓 $\Gamma$ 和 $\triangle{ABC}$ 外接圓的根軸就是通過 $A$ 點的切線。
+由根心定理可知，$MA$ 便是上述的切線。利用圓冪定理可得 $\overrightarrow{MP}\cdot\overrightarrow{ME}=MA^2$，命題三便可以等價變換成命題四：
+\begin{equation}
+  (3)\ \Leftrightarrow\ MA^2=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+此時完全消去了 $E$ 和 $P$ 點，整理幾何圖如下：
+
+\begin{figure}[htbp] % 子圖 3
+  \centering
+  \begin{tikzpicture}[scale=0.7]
+    \tkzDefPoints{0/0/O, -3/-2/B, 3/-2/C}
+    \tkzDefPointBy[rotation=center O angle -100](B)\tkzGetPoint{A}
+    \tkzDefPointBy[projection=onto B--C](A)\tkzGetPoint{D}
+    \tkzDefPointWith[linear, K=1.3](A,O)\tkzGetPoint{P}
+    %\tkzDefPointWith[linear, K=0.5](A,P)\tkzGetPoint{X}
+    %\tkzDefCircle[circum](B,P,C)\tkzGetPoint{O1}
+    \tkzInterCC[common=P](X,P)(O1,P)\tkzGetFirstPoint{E}
+    \tkzInterLL(A,O)(B,C)\tkzGetPoint{G}
+    \tkzInterLL(P,E)(B,C)\tkzGetPoint{M}
+    %\tkzDefLine[parallel=through A](B,C)\tkzGetPoint{L}
+    %\tkzInterLL(A,L)(D,E)\tkzGetPoint{F}
+    \tkzDrawPoints[black](A,B,C,O,G,M)
+    \tkzDrawPoints[size=4, fill=black](D)
+    \tkzDrawCircle[black](O,B)
+    %\tkzDrawCircle[black](X,A)
+    %\tkzDrawArc[blue, densely dashed](O1,C)(B)
+    \tkzDrawSegments[black, thick](A,B A,C B,C A,D A,G)
+    \tkzDrawSegments[black, thick, densely dashed](M,B M,A)
+    %\tkzDrawSegment[red, thick, densely dashed](D,E)
+    %\tkzDrawLine[black, thick, add=0.2 and 0.4](A,P)
+    \tkzLabelPoints[above](A)
+    \tkzLabelPoints[below left](B,G)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelPoints[below](D,M)
+    \tkzLabelPoints[above right](O)
+    \tkzMarkRightAngle[color=blue, size=0.6, line width=2pt](M,A,G)
+  \end{tikzpicture}
+\end{figure}
+因為 $MA$ 是$\triangle{ABC}$ 外接圓的切線，所以 $MA\perp AO$，即 $MA\perp AG$，由此可知 $\triangle{MAG}$ 是直角三角形，斜邊為 $MG$。
+
+因為 $AD\perp BC$，所以 $AD\perp MG$，即 $AD$ 是直角 $\triangle{MAG}$ 斜邊上的高，由射影定理可知
+\begin{equation}
+  MA^2=\overrightarrow{MD}\cdot\overrightarrow{MG}
+\end{equation}
+因為命題四成立，且以上每步命題變換均為等價的，所以原命題得證。
+%================ Solution 4 ================%
+\newpage
+%================ Problem 5 ================%
+\INDEX{問題 5}$\triangle{ABC}$ 的重心為 $G$，$R$ 和 $S$ 分別在射線 $GB$ 和 $GC$ 上，且滿足
+$$
+  \angle{ABS}=\angle{ACR}=180^{\circ}-\angle{BGC}
+$$
+\textbf{求證：}$\angle{RAS}+\angle{BAC}=\angle{BGC}$。
+\begin{figure}[htbp] % p5 示意圖
+  \centering
+  \begin{tikzpicture}[scale=1.1]
+    \tkzDefPoints{-0.5/7/A, -2/0/B, 3/0/C}
+    \tkzDefTriangleCenter[centroid](A,B,C)\tkzGetPoint{G}
+    \tkzDefLine[orthogonal=through B](A,B)\tkzGetPoint{X1}
+    \tkzDefLine[mediator](G,B)\tkzGetPoints{X2}{X3}
+    \tkzInterLL(B,X1)(X2,X3)\tkzGetPoint{O_B}
+    \tkzInterLC[common=G](G,C)(O_B,G)\tkzGetFirstPoint{S}
+    \tkzDefLine[orthogonal=through C](A,C)\tkzGetPoint{Y1}
+    \tkzDefLine[mediator](G,C)\tkzGetPoints{Y2}{Y3}
+    \tkzInterLL(C,Y1)(Y2,Y3)\tkzGetPoint{O_C}
+    \tkzInterLC[common=G](G,B)(O_C,G)\tkzGetFirstPoint{R}
+    \tkzDrawPoints[black](A,B,C,G,R,S)
+    \tkzDrawSegments[black, thick](A,B A,C B,C G,R G,S B,S C,R)
+    %\tkzDrawCircles[black, thick](O_B,G O_C,G)
+    \tkzLabelPoints[above](A,G)
+    \tkzLabelPoints[left](B,R)
+    \tkzLabelPoints[right](C,S)
+    \tkzMarkAngle[size=0.4, color=blue, line width=1.5pt](S,B,A)
+    \tkzMarkAngle[size=0.4, color=blue, line width=1.5pt](A,C,R)
+    \tkzMarkAngle[size=0.4, color=red, line width=1.5pt](B,G,C)
+  \end{tikzpicture}
+\end{figure}
+%================ Problem 5 ================%
+\newpage
+%================ Solution 5 ================%
+\INDEX{證明：}\setcounter{equation}{0}
+因為 $S$ 在射線 $GC$ 上，所以存在正數 $\lambda > 0$ 使得 $\overrightarrow{GS}=\lambda\overrightarrow{GC}$。
+記 $AB$ 的中點為 $M$，由重心定理可知 $\overrightarrow{GM}=-\dfrac{1}{2}\overrightarrow{GC}$，所以有
+\begin{equation}
+  \overrightarrow{GG}=\overrightarrow{0}=\frac{1}{1+2\lambda}\overrightarrow{GS}+\frac{2\lambda}{1+2\lambda}\overrightarrow{GM}
+\end{equation}
+由定比分點的性質可知，$G$ 在線段 $MS$ 上，進一步可得 $G$ 在 $\angle{MBS}=\angle{ABS}$ 的內部。
+
+由題中的已知條件可知
+\begin{equation}
+  \angle{ABS}=180^{\circ}-\angle{BGC}=180^{\circ}-\angle{BGS}
+\end{equation}
+結合「$G$ 在 $\angle{ABS}$ 的內部」的推論，利用弦切角定理的逆定理可得出 $AB$ 是 $\triangle{BGS}$ 外接圓的切線。
+
+結合 $M$ 點的中點條件，由切割線定理可知
+\begin{equation}
+  \overrightarrow{MA}^2=\overrightarrow{MB}^2=\overrightarrow{MG}\cdot\overrightarrow{MS}
+\end{equation}
+所以又可得知 $MA$ 是 $\triangle{AGS}$ 外接圓的切線，即 $AB$ 是 $\triangle{AGS}$ 外接圓的切線，進一步可得
+\begin{equation}
+  \angle{BAG}=\angle{MAG}=\angle{ASG}\label{eq:p5_s1}
+\end{equation}
+同理可得 $AC$ 是 $\triangle{AGR}$ 外接圓及 $\triangle{CGR}$ 外接圓的外公切線，以及 $\angle{CAG}=\angle{ARG}$。
+
+最終可知
+\begin{align}
+  \angle{BGC}&=\angle{RGS}\notag\\
+  &=\angle{RAS}+\angle{ARG}+\angle{ASG}\notag\\
+  &=\angle{RAS}+\angle{CAG}+\angle{BAG}\notag\\
+  &=\angle{BAS}+\angle{BAC}
+\end{align}
+%================ Solution 5 ================%
 \end{document}
