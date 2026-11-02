@@ -1,0 +1,106 @@
+\setcounter{equation}{0}
+本解法純用正弦定理與角度計算（三角法），完全不用圓、切線、弦切角、圓幂（切割線定理）或相似三角形。記 $M$、$N$ 分別為 $AB$、$AC$ 的中點。
+
+\textbf{一、共線關係。}
+由重心定理，$C$、$G$、$M$ 三點共線且 $\overrightarrow{GM}=-\dfrac{1}{2}\overrightarrow{GC}$，故 $G$ 在線段 $CM$ 的內部。又 $S$ 在射線 $GC$ 上，故 $M$、$G$、$S$ 依序共線，於是射線 $GM$ 與 $GS$ 互為反向射線、射線 $GS$ 與 $GC$ 重合，且
+\begin{equation}\label{eq:p5t1}
+  \angle{BGS}=\angle{BGC},\qquad \angle{MBS}=\angle{ABS}.
+\end{equation}
+同法，$N$、$G$、$R$ 依序共線，且 $\angle{CGR}=\angle{CGB}=\angle{BGC}$。
+
+\textbf{二、引理。}
+\textbf{引理.} 設 $M$ 是 $AB$ 的中點，$M$、$G$、$S$ 依序共線，且 $\angle{ABS}=180^{\circ}-\angle{BGS}$，則
+\begin{equation}\label{eq:p5t2}
+  \angle{BAG}=\angle{ASG}.
+\end{equation}
+
+\textbf{證明.} 記 $w=\angle{BMS}$、$\varphi=\angle{BSM}$、$x=\angle{BAG}$、$y=\angle{ASG}$。由射線的關係（$G$ 在 $MS$ 上、$M$ 在 $AB$ 上）得
+\begin{equation}\label{eq:p5t3}
+  \angle{ASM}=y,\qquad \angle{MAG}=x,\qquad \angle{AMG}=180^{\circ}-w,\qquad \angle{BGM}=180^{\circ}-\angle{BGS}.
+\end{equation}
+三角形 $BM\!S$ 的內角和給出
+\begin{equation}\label{eq:p5t4}
+  w+\varphi=180^{\circ}-\angle{MBS}=180^{\circ}-\angle{ABS}=\angle{BGS}.
+\end{equation}
+
+\textbf{(1) 比較三角形 $BMG$ 與 $AMG$。}
+由 \eqref{eq:p5t3}、\eqref{eq:p5t4} 及兩三角形的內角和，
+\begin{equation}\label{eq:p5t5}
+  \angle{MBG}=180^{\circ}-\angle{BGM}-\angle{BMG}=\angle{BGS}-w=\varphi,
+  \qquad
+  \angle{AGM}=180^{\circ}-\angle{AMG}-x=w-x .
+\end{equation}
+分別對兩三角形用正弦定理：
+\begin{equation}\label{eq:p5t6}
+  \frac{BM}{MG}=\frac{\sin\angle{BGM}}{\sin\angle{MBG}}=\frac{\sin\angle{BGS}}{\sin\varphi},
+  \qquad
+  \frac{AM}{MG}=\frac{\sin\angle{AGM}}{\sin\angle{MAG}}=\frac{\sin(w-x)}{\sin x}.
+\end{equation}
+因 $BM=AM$，故
+\begin{equation}\label{eq:p5t7}
+  \sin\angle{BGS}\,\sin x=\sin\varphi\,\sin(w-x).
+\end{equation}
+
+\textbf{(2) 比較三角形 $BM\!S$ 與 $AM\!S$。}
+同理 $\angle{AMS}=180^{\circ}-w$，故 $\angle{MAS}=180^{\circ}-y-\angle{AMS}=w-y$；又 $\angle{BSM}=\varphi$ 且 $\sin\angle{MBS}=\sin\angle{ABS}=\sin\angle{BGS}$。用正弦定理並以 $BM=AM$ 消去公共邊：
+\begin{equation}\label{eq:p5t8}
+  \frac{BM}{MS}=\frac{\sin\angle{BSM}}{\sin\angle{MBS}}=\frac{\sin\varphi}{\sin\angle{BGS}},
+  \qquad
+  \frac{AM}{MS}=\frac{\sin\angle{ASM}}{\sin\angle{MAS}}=\frac{\sin y}{\sin(w-y)},
+\end{equation}
+即
+\begin{equation}\label{eq:p5t9}
+  \sin\varphi\,\sin(w-y)=\sin y\,\sin\angle{BGS}.
+\end{equation}
+
+\textbf{(3) 由解的唯一性得 $x=y$。}
+\eqref{eq:p5t7} 與 \eqref{eq:p5t9} 說明 $t=x$ 與 $t=y$ 都滿足
+\begin{equation}\label{eq:p5t10}
+  \sin\angle{BGS}\,\sin t=\sin\varphi\,\sin(w-t).
+\end{equation}
+因為 $0^{\circ}<t<180^{\circ}$ 時 $\sin t>0$，而 $0^{\circ}<w<180^{\circ}$、$0^{\circ}<\varphi<180^{\circ}$，所以 \eqref{eq:p5t10} 等價於
+\begin{equation}\label{eq:p5t11}
+  \cot t=\frac{\sin\angle{BGS}+\sin\varphi\cos w}{\sin\varphi\,\sin w},
+\end{equation}
+右邊是定值，而 $\cot$ 在 $(0^{\circ},180^{\circ})$ 上嚴格遞減，故 \eqref{eq:p5t10} 在 $(0^{\circ},180^{\circ})$ 中的解 $t$ 唯一，從而 $x=y$，即 $\angle{BAG}=\angle{ASG}$。引理證畢。
+
+\textbf{三、引理的對稱情形。}
+把引理中的 $B$、$S$、$M$ 依次換成 $C$、$R$、$N$：$N$ 是 $AC$ 的中點，$N$、$G$、$R$ 依序共線，且 $\angle{CGR}=\angle{BGC}$，故 $\angle{ACR}=180^{\circ}-\angle{CGR}$ 成立，於是有
+\begin{equation}\label{eq:p5t12}
+  \angle{CAG}=\angle{ARG}.
+\end{equation}
+
+\textbf{四、收尾的角度計算。}
+因為 $G$ 在 $\triangle{ABC}$ 的內部，三射線 $GA$、$GB$、$GC$ 兩兩相鄰所成的角之和為 $360^{\circ}$：
+\begin{equation}\label{eq:p5t13}
+  \angle{BGA}+\angle{AGC}+\angle{BGC}=360^{\circ}.
+\end{equation}
+又射線 $GR$、$GS$ 分別與 $GB$、$GC$ 重合，故 $\angle{RGA}=\angle{BGA}$、$\angle{AGS}=\angle{AGC}$，代入 \eqref{eq:p5t13} 得
+\begin{equation}\label{eq:p5t14}
+  \angle{RGA}+\angle{AGS}=360^{\circ}-\angle{RGS}=360^{\circ}-\angle{BGC}.
+\end{equation}
+再者，因 $G$ 在 $\triangle{ABC}$ 內部，直線 $AG$ 與線段 $BC$ 相交，故 $B$、$C$ 在直線 $AG$ 的異側；而 $R$、$S$ 分別在射線 $GB$、$GC$ 上，故 $R$、$S$ 也在直線 $AG$ 的異側。於是射線 $AG$ 落在 $\angle{RAS}$ 的內部，即
+\begin{equation}\label{eq:p5t15}
+  \angle{RAS}=\angle{RAG}+\angle{GAS}.
+\end{equation}
+在 $\triangle{ARG}$ 與 $\triangle{ASG}$ 中分別用內角和：
+\begin{equation}\label{eq:p5t16}
+  \angle{RAG}+\angle{ARG}+\angle{RGA}=180^{\circ},\qquad
+  \angle{GAS}+\angle{ASG}+\angle{AGS}=180^{\circ}.
+\end{equation}
+兩式相加，並代入 \eqref{eq:p5t15} 與 \eqref{eq:p5t14}：
+\begin{align}
+  \angle{RAS}+\angle{ARG}+\angle{ASG}+360^{\circ}-\angle{BGC}&=360^{\circ},\notag\\
+  \angle{BGC}&=\angle{RAS}+\angle{ARG}+\angle{ASG}\notag\\
+  &=\angle{RAS}+\angle{CAG}+\angle{BAG}\notag\\
+  &=\angle{RAS}+\angle{BAC}.
+\end{align}
+證畢。
+
+\medskip
+\textbf{註.}
+\begin{enumerate}
+  \item 全題的樞紐是引理。它把「$AB$ 與圓 $(BGS)$ 相切於 $B$」這種切線訊息，換成三角語言：$t=x$ 與 $t=y$ 都滿足同一個方程式 $\sin\angle{BGS}\sin t=\sin\varphi\sin(w-t)$，而此方程式在 $(0^{\circ},180^{\circ})$ 中只有一解。因此不必引入任何圓，也就不需要弦切角定理的逆定理與切割線定理。
+  \item 由 \eqref{eq:p5t7}、\eqref{eq:p5t9} 可見，引理的證明只用到「$BM=AM$」、「$G$ 在 $M$ 與 $S$ 之間」與角度條件；重心定理在此只負責提供共線性（$M$、$G$、$S$ 共線），與 $GM=\frac{1}{2}GC$ 的比值無關。
+  \item 結論左邊是 $\angle{RAS}$（$R$ 在 $B$ 側、$S$ 在 $C$ 側，配對為 $\angle{ARG}=\angle{CAG}$、$\angle{ASG}=\angle{BAG}$）；若寫成 $\angle{BAS}$，配對相反，一般並不成立。
+\end{enumerate}
